@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slice of life — Vaishnavi Venkatesh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      function fb(i) {
+        var l = (i.dataset.f || "").split("|").filter(Boolean);
+        if (l.length) {
+          i.src = l.shift();
+          i.dataset.f = l.join("|");
+        } else i.remove();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <!-- HEADER: logo (links home) and navigation -->
+    <header class="site-head">
+      <a class="logo" href="home.html" aria-label="Home"
+        ><img
+          src="assets/logo.png"
+          alt="Home"
+          onerror="
+            this.onerror = null;
+            this.src = 'assets/logo.svg';
+          "
+      /></a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="slice.html" class="on">Slice of life</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- PAGE TITLE -->
+    <section class="page-hero">
+      <span class="label">Slice of life</span>
+      <h1>Slice of<br />my life</h1>
+      <p>A small desk of things I'm into right now. Click, tick and play with everything.</p>
+    </section>
+    <!-- WIDGET BOARD -->
+    <section class="board">
+      <article class="w w-notice">
+        <h3>Currently noticing</h3>
+        <p class="notice-big"><span id="notice"></span></p>
+      </article>
+
+      <article class="w w-play">
+        <h3>Now playing</h3>
+        <svg class="tape" viewBox="0 0 300 130" aria-hidden="true">
+          <rect x="4" y="4" width="292" height="122" rx="10" />
+          <rect x="50" y="22" width="200" height="54" rx="27" />
+          <g class="reel">
+            <circle cx="100" cy="49" r="16" />
+            <path d="M100 36v26M87 49h26" />
+          </g>
+          <g class="reel">
+            <circle cx="200" cy="49" r="16" />
+            <path d="M200 36v26M187 49h26" />
+          </g>
+          <path d="M70 126l14-30h132l14 30" />
+        </svg>
+        <div class="track-name">Add a song title</div>
+        <div class="track-by">Artist name</div>
+        <div class="bar"><i></i></div>
+        <div class="times"><span class="cur">0:00</span><span class="len"></span></div>
+        <button class="btn" id="playBtn" type="button">Play</button>
+      </article>
+
+      <article class="w w-todo">
+        <h3>Weekend to-do</h3>
+        <ul class="todo">
+          <li>
+            <button type="button">
+              <span class="box">[ ]</span><span class="t">finish a case study</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <span class="box">[ ]</span><span class="t">go for a long walk</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <span class="box">[ ]</span><span class="t">try a new recipe</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <span class="box">[ ]</span><span class="t">call someone I miss</span>
+            </button>
+          </li>
+        </ul>
+      </article>
+
+      <article class="w w-count">
+        <h3 id="cdLabel"></h3>
+        <div class="digits" id="cd"></div>
+        <div class="clock"><span>India (IST)</span><b id="clock"></b></div>
+      </article>
+
+      <article class="w w-chai">
+        <h3>Cups of chai</h3>
+        <button class="chai" type="button" aria-label="Add a cup of chai">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <path class="steam" d="M38 22q-6-8 0-14" />
+            <path class="steam" d="M52 22q-6-8 0-14" />
+            <path class="steam" d="M66 22q-6-8 0-14" />
+            <path d="M20 34h54v22a22 22 0 0 1-22 22h-10a22 22 0 0 1-22-22Z" />
+            <path d="M74 40h6a10 10 0 0 1 0 20h-8" />
+            <path d="M14 90h66" />
+          </svg>
+          <b>0</b><span class="hint">Click to pour one</span>
+        </button>
+      </article>
+
+      <article class="w w-mem">
+        <h3>Memories</h3>
+        <div class="stack" aria-label="Photo stack, click to shuffle">
+          <div class="pol hatch">
+            <div>
+              <img
+                src="imagezz/life-1.png"
+                data-f="imagezz/life-1.jpg|assets/ph/life-1.svg"
+                alt=""
+                onerror="fb(this)"
+              />
+            </div>
+          </div>
+          <div class="pol hatch">
+            <div>
+              <img
+                src="imagezz/life-2.png"
+                data-f="imagezz/life-2.jpg|assets/ph/life-2.svg"
+                alt=""
+                onerror="fb(this)"
+              />
+            </div>
+          </div>
+          <div class="pol hatch">
+            <div>
+              <img
+                src="imagezz/life-3.png"
+                data-f="imagezz/life-3.jpg|assets/ph/life-3.svg"
+                alt=""
+                onerror="fb(this)"
+              />
+            </div>
+          </div>
+          <div class="pol hatch">
+            <div>
+              <img
+                src="imagezz/life-4.png"
+                data-f="imagezz/life-4.jpg|assets/ph/life-4.svg"
+                alt=""
+                onerror="fb(this)"
+              />
+            </div>
+          </div>
+        </div>
+        <p class="hint">Click the stack to shuffle</p>
+      </article>
+
+      <article class="w w-slip">
+        <h3>Noticed today</h3>
+        <div class="slip">
+          <p><span>1 crooked signboard</span><span>noted</span></p>
+          <p><span>2 stray cats on a wall</span><span>noted</span></p>
+          <p><span>1 stranger humming</span><span>noted</span></p>
+          <p><span>3 shades of afternoon light</span><span>noted</span></p>
+          <div class="tot"><span>TOTAL</span><span>a good day</span></div>
+        </div>
+      </article>
+    </section>
+    <!-- FOOTER: say hello and social links -->
+    <footer class="foot" id="contact">
+      <h2>Say Hello!!</h2>
+      <p>Let's connect.</p>
+      <a class="mail" href="mailto:veeven.des12@gmail.com">veeven.des12@gmail.com</a>
+      <div class="foot-row">
+        <span>&copy; 2026 Vaishnavi Venkatesh</span>
+        <div>
+          <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a
+          ><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a
+          ><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+            >instagram</a
+          ><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+            >linkedin</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

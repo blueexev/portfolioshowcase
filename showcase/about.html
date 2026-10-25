@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Vaishnavi Venkatesh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      function fb(i) {
+        var l = (i.dataset.f || "").split("|").filter(Boolean);
+        if (l.length) {
+          i.src = l.shift();
+          i.dataset.f = l.join("|");
+        } else i.remove();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <!-- HEADER: logo (links home) and navigation -->
+    <header class="site-head">
+      <a class="logo" href="home.html" aria-label="Home"
+        ><img
+          src="assets/logo.png"
+          alt="Home"
+          onerror="
+            this.onerror = null;
+            this.src = 'assets/logo.svg';
+          "
+      /></a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html" class="on">About</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="slice.html">Slice of life</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- PAGE TITLE -->
+    <section class="page-hero">
+      <span class="label">About</span>
+      <h1>Hi, I'm<br />Vaishnavi.</h1>
+    </section>
+    <!-- ABOUT CONTENT -->
+    <div class="about-page">
+      <section class="sec">
+        <h2>Who I am</h2>
+        <div>
+          <p>
+            I'm a multimedia experience designer who loves to notice things that often go unnoticed.
+            I'm interested in the space between technology, culture and storytelling.
+          </p>
+          <p class="mute">
+            My work turns stories, places and cultural ideas into experiences people can actually
+            interact with.
+          </p>
+        </div>
+      </section>
+      <section class="sec">
+        <h2>What I do</h2>
+        <ul class="plain">
+          <li>UI / UX design</li>
+          <li>Immersive experiences</li>
+          <li>Visual storytelling</li>
+          <li>AR / VR</li>
+          <li>Experimental interfaces</li>
+        </ul>
+      </section>
+      <section class="sec">
+        <h2>Tools</h2>
+        <ul class="plain">
+          <li>Unity</li>
+          <li>Blender</li>
+          <li>Figma</li>
+          <li>Illustrator</li>
+          <li>p5.js</li>
+          <li>Print prototyping</li>
+        </ul>
+      </section>
+      <section class="sec">
+        <h2>Open to</h2>
+        <div class="tags">
+          <span>Interaction design</span><span>Visual design</span><span>Creative design</span
+          ><span>Creative direction</span><span>Experience design</span>
+        </div>
+      </section>
+    </div>
+    <!-- FOOTER: say hello and social links -->
+    <footer class="foot" id="contact">
+      <h2>Say Hello!!</h2>
+      <p>Let's connect.</p>
+      <a class="mail" href="mailto:veeven.des12@gmail.com">veeven.des12@gmail.com</a>
+      <div class="foot-row">
+        <span>&copy; 2026 Vaishnavi Venkatesh</span>
+        <div>
+          <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a
+          ><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a
+          ><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+            >instagram</a
+          ><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+            >linkedin</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playground — Vaishnavi Venkatesh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      function fb(i) {
+        var l = (i.dataset.f || "").split("|").filter(Boolean);
+        if (l.length) {
+          i.src = l.shift();
+          i.dataset.f = l.join("|");
+        } else i.remove();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <!-- HEADER: logo (links home) and navigation -->
+    <header class="site-head">
+      <a class="logo" href="home.html" aria-label="Home"
+        ><img
+          src="assets/logo.png"
+          alt="Home"
+          onerror="
+            this.onerror = null;
+            this.src = 'assets/logo.svg';
+          "
+      /></a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="playground.html" class="on">Playground</a></li>
+          <li><a href="slice.html">Slice of life</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- PAGE TITLE -->
+    <section class="page-hero">
+      <span class="label">Playground</span>
+      <h1>Made for<br />fun.</h1>
+      <p>Experiments, sketches and unfinished ideas that sit outside the case studies.</p>
+    </section>
+    <!-- EXPERIMENTS GRID -->
+    <section class="play-grid">
+      <div class="play reveal">
+        <span class="label">Experiment 01 · Motion</span>
+        <div>
+          <h3>Add a title</h3>
+          <p>Add a short note about this experiment.</p>
+        </div>
+      </div>
+      <div class="play reveal">
+        <span class="label">Experiment 02 · Type</span>
+        <div>
+          <h3>Add a title</h3>
+          <p>Add a short note about this experiment.</p>
+        </div>
+      </div>
+      <div class="play reveal">
+        <span class="label">Experiment 03 · Sketch</span>
+        <div>
+          <h3>Add a title</h3>
+          <p>Add a short note about this experiment.</p>
+        </div>
+      </div>
+      <div class="play reveal">
+        <span class="label">Experiment 04 · Code</span>
+        <div>
+          <h3>Add a title</h3>
+          <p>Add a short note about this experiment.</p>
+        </div>
+      </div>
+      <div class="play reveal">
+        <span class="label">Experiment 05 · Sound</span>
+        <div>
+          <h3>Add a title</h3>
+          <p>Add a short note about this experiment.</p>
+        </div>
+      </div>
+      <div class="play reveal">
+        <span class="label">Experiment 06 · Print</span>
+        <div>
+          <h3>Add a title</h3>
+          <p>Add a short note about this experiment.</p>
+        </div>
+      </div>
+    </section>
+    <!-- FOOTER: say hello and social links -->
+    <footer class="foot" id="contact">
+      <h2>Say Hello!!</h2>
+      <p>Let's connect.</p>
+      <a class="mail" href="mailto:veeven.des12@gmail.com">veeven.des12@gmail.com</a>
+      <div class="foot-row">
+        <span>&copy; 2026 Vaishnavi Venkatesh</span>
+        <div>
+          <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a
+          ><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a
+          ><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+            >instagram</a
+          ><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+            >linkedin</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

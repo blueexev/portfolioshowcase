@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vaishnavi Venkatesh — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      function fb(i) {
+        var l = (i.dataset.f || "").split("|").filter(Boolean);
+        if (l.length) {
+          i.src = l.shift();
+          i.dataset.f = l.join("|");
+        } else i.remove();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <!-- ENTRY SCREEN: name and enter button -->
+    <main class="entry">
+      <div class="entry-top"><span>Portfolio</span><span>2026</span></div>
+      <h1 class="entry-name"><span>Vaishnavi</span><span>Venkatesh</span></h1>
+      <div class="entry-bot">
+        <span>Multimedia experience designer</span><span>Press enter</span>
+      </div>
+      <a class="enter" href="home.html" data-go aria-label="Enter portfolio">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <defs><path id="c" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0" /></defs>
+          <text>
+            <textPath href="#c" textLength="510" lengthAdjust="spacing">
+              ENTER · ENTER · ENTER · ENTER · ENTER ·
+            </textPath>
+          </text></svg
+        ><span>→</span></a
+      >
+    </main>
+    <div class="curtain"></div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
