@@ -1,116 +1,677 @@
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About — Vaishnavi Venkatesh</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <script>
-      function fb(i) {
-        var l = (i.dataset.f || "").split("|").filter(Boolean);
-        if (l.length) {
-          i.src = l.shift();
-          i.dataset.f = l.join("|");
-        } else i.remove();
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>About — Vaishnavi Venkatesh</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* =========================
+       GLOBAL LAYOUT
+    ========================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+    }
+
+    body {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      margin: 0;
+      padding: 0 20px;
+
+      text-align: left;
+      overflow-x: clip;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    /* Keep all main sections aligned to the left */
+    .page-hero,
+    .about-page,
+    .about-page .sec,
+    .foot {
+      text-align: left !important;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .site-head {
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
+      gap: 24px;
+      padding: 20px 0;
+      margin: 0;
+
+      text-align: left !important;
+      transform: none !important;
+      overflow: visible !important;
+      z-index: 100;
+    }
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    .site-head .logo {
+      display: inline-flex;
+      flex: 0 1 220px;
+
+      align-items: center;
+      justify-content: flex-start;
+
+      width: 220px;
+      max-width: 42%;
+      min-width: 0;
+      height: auto;
+
+      margin: 0;
+      padding: 0;
+
+      overflow: visible !important;
+
+      background: transparent !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+
+      transform: none !important;
+      transform-origin: left center;
+      transition: transform 0.25s ease !important;
+    }
+
+    .site-head .logo img {
+      display: block;
+
+      width: 100%;
+      max-width: 100%;
+      height: auto !important;
+      max-height: none !important;
+
+      object-fit: contain !important;
+      object-position: left center;
+
+      margin: 0;
+      padding: 0;
+
+      overflow: visible !important;
+
+      background: transparent !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      clip-path: none !important;
+
+      transform: none !important;
+    }
+
+    /* Enlarge only on hover */
+    .site-head .logo:hover,
+    .site-head .logo:focus-visible {
+      transform: scale(1.08) !important;
+    }
+
+    .site-head .logo:hover img,
+    .site-head .logo:focus-visible img {
+      transform: none !important;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .site-head .site-nav {
+      display: block !important;
+      flex: 0 1 auto;
+
+      width: auto;
+      max-width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: 0;
+
+      position: relative !important;
+      left: auto !important;
+      right: auto !important;
+
+      text-align: left !important;
+      overflow: visible !important;
+      transform: none !important;
+    }
+
+    .site-head .site-nav ul {
+      display: flex !important;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      gap: 6px;
+
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      text-align: left !important;
+    }
+
+    .site-head .site-nav li {
+      display: block !important;
+
+      width: auto;
+      max-width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: 0;
+
+      text-align: left !important;
+    }
+
+    .site-head .site-nav a {
+      display: inline-block;
+
+      max-width: 100%;
+      margin: 0;
+      padding: 2px 0;
+
+      text-align: left !important;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .site-head .site-nav a.on {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* =========================
+       PAGE TITLE
+    ========================= */
+
+    .page-hero {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: clamp(45px, 8vw, 90px) 0 45px;
+
+      text-align: left !important;
+      overflow-wrap: anywhere;
+    }
+
+    .page-hero .label {
+      display: block;
+      margin: 0 0 14px;
+      text-align: left !important;
+    }
+
+    .page-hero h1 {
+      width: 100%;
+      max-width: 100%;
+
+      margin: 0;
+
+      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+
+      text-align: left !important;
+      overflow-wrap: anywhere;
+    }
+
+    /* =========================
+       ABOUT CONTENT
+    ========================= */
+
+    .about-page {
+      display: flex;
+      flex-direction: column;
+
+      width: 100%;
+      max-width: 1100px;
+      min-width: 0;
+
+      margin: 0;
+      padding: 0 0 70px;
+
+      text-align: left !important;
+    }
+
+    .about-page .sec {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+
+      align-items: start;
+      gap: clamp(24px, 5vw, 80px);
+
+      width: 100%;
+      min-width: 0;
+
+      padding: clamp(28px, 5vw, 48px) 0;
+
+      text-align: left !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+    }
+
+    .about-page .sec h2 {
+      min-width: 0;
+      margin: 0;
+
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      line-height: 1.2;
+
+      text-align: left !important;
+      overflow-wrap: anywhere;
+    }
+
+    .about-page .sec > div,
+    .about-page .sec > ul,
+    .about-page .sec > .tags {
+      min-width: 0;
+      margin-top: 0;
+
+      text-align: left !important;
+    }
+
+    .about-page .sec p {
+      max-width: 62ch;
+      margin-top: 0;
+
+      line-height: 1.8;
+      text-align: left !important;
+    }
+
+    .about-page .sec p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-page .sec .mute {
+      opacity: 0.65;
+    }
+
+    /* Lists */
+    .about-page .plain {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      text-align: left !important;
+    }
+
+    .about-page .plain li {
+      width: 100%;
+      line-height: 1.6;
+
+      text-align: left !important;
+      overflow-wrap: anywhere;
+    }
+
+    /* Open-to tags */
+    .about-page .tags {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 10px;
+
+      text-align: left !important;
+    }
+
+    .about-page .tags span {
+      display: inline-block;
+      max-width: 100%;
+
+      padding: 8px 12px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      border-radius: 30px;
+
+      line-height: 1.4;
+      text-align: left !important;
+      overflow-wrap: anywhere;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .foot {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: 50px 0 24px;
+
+      text-align: left !important;
+      overflow-wrap: anywhere;
+    }
+
+    .foot h2,
+    .foot p {
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: left !important;
+    }
+
+    .foot .mail {
+      display: inline-block;
+      max-width: 100%;
+      text-align: left !important;
+      overflow-wrap: anywhere;
+    }
+
+    .foot-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
+      margin-top: 30px;
+      text-align: left !important;
+    }
+
+    .foot-row > div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 16px;
+
+      max-width: 100%;
+      min-width: 0;
+
+      text-align: left !important;
+    }
+
+    .foot-row a {
+      text-align: left !important;
+      overflow-wrap: anywhere;
+    }
+
+    /* =========================
+       TABLET AND MOBILE
+    ========================= */
+
+    @media (max-width: 760px) {
+      .site-head {
+        gap: 16px;
       }
-    </script>
-  </head>
-  <body>
-    <div class="cursor"></div>
-    <!-- HEADER: logo (links home) and navigation -->
-    <header class="site-head">
-      <a class="logo" href="home.html" aria-label="Home"
-        ><img
-          src="assets/logo.png"
-          alt="Home"
-          onerror="
-            this.onerror = null;
-            this.src = 'assets/logo.svg';
-          "
-      /></a>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html" class="on">About</a></li>
-          <li><a href="playground.html">Playground</a></li>
-          <li><a href="slice.html">Slice of life</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- PAGE TITLE -->
-    <section class="page-hero">
-      <span class="label">About</span>
-      <h1>Hi, I'm<br />Vaishnavi.</h1>
-    </section>
-    <!-- ABOUT CONTENT -->
-    <div class="about-page">
-      <section class="sec">
-        <h2>Who I am</h2>
-        <div>
-          <p>
-            I'm a multimedia experience designer who loves to notice things that often go unnoticed.
-            I'm interested in the space between technology, culture and storytelling.
-          </p>
-          <p class="mute">
-            My work turns stories, places and cultural ideas into experiences people can actually
-            interact with.
-          </p>
-        </div>
-      </section>
-      <section class="sec">
-        <h2>What I do</h2>
-        <ul class="plain">
-          <li>UI / UX design</li>
-          <li>Immersive experiences</li>
-          <li>Visual storytelling</li>
-          <li>AR / VR</li>
-          <li>Experimental interfaces</li>
-        </ul>
-      </section>
-      <section class="sec">
-        <h2>Tools</h2>
-        <ul class="plain">
-          <li>Unity</li>
-          <li>Blender</li>
-          <li>Figma</li>
-          <li>Illustrator</li>
-          <li>p5.js</li>
-          <li>Print prototyping</li>
-        </ul>
-      </section>
-      <section class="sec">
-        <h2>Open to</h2>
-        <div class="tags">
-          <span>Interaction design</span><span>Visual design</span><span>Creative design</span
-          ><span>Creative direction</span><span>Experience design</span>
-        </div>
-      </section>
-    </div>
-    <!-- FOOTER: say hello and social links -->
-    <footer class="foot" id="contact">
-      <h2>Say Hello!!</h2>
-      <p>Let's connect.</p>
-      <a class="mail" href="mailto:veeven.des12@gmail.com">veeven.des12@gmail.com</a>
-      <div class="foot-row">
-        <span>&copy; 2026 Vaishnavi Venkatesh</span>
-        <div>
-          <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a
-          ><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a
-          ><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-            >instagram</a
-          ><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
-            >linkedin</a
-          >
-        </div>
+
+      .site-head .logo {
+        flex-basis: 160px;
+        width: 160px;
+        max-width: 48%;
+      }
+
+      .site-head .site-nav {
+        flex: 0 1 150px;
+      }
+
+      .site-head .site-nav ul {
+        gap: 5px;
+      }
+
+      .site-head .site-nav a {
+        font-size: 0.9rem;
+      }
+
+      .page-hero {
+        padding-top: 55px;
+        padding-bottom: 30px;
+      }
+
+      .page-hero h1 {
+        font-size: clamp(2.6rem, 8vw, 4.2rem);
+      }
+
+      .about-page .sec {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        padding: 30px 0;
+      }
+
+      .about-page .sec h2 {
+        font-size: 1.5rem;
+      }
+
+      .foot-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .site-head {
+        gap: 10px;
+      }
+
+      .site-head .logo {
+        flex-basis: 125px;
+        width: 125px;
+      }
+
+      .site-head .site-nav {
+        flex-basis: 125px;
+      }
+
+      .site-head .site-nav a {
+        font-size: 0.82rem;
+      }
+
+      .page-hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .site-head .logo {
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <script>
+    function fb(i) {
+      var l = (i.dataset.f || "").split("|").filter(Boolean);
+
+      if (l.length) {
+        i.src = l.shift();
+        i.dataset.f = l.join("|");
+      } else {
+        i.remove();
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="cursor"></div>
+
+  <!-- HEADER -->
+  <header class="site-head">
+    <a class="logo" href="home.html" aria-label="Home">
+      <img
+        src="imagezz/vvc%20logo.png"
+        alt="Vaishnavi Venkatesh"
+        onerror="this.onerror=null; this.src='assets/logo.svg';"
+      />
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html" class="on">About</a></li>
+        <li><a href="playground.html">Playground</a></li>
+        <li><a href="slice.html">Slice of life</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PAGE TITLE -->
+  <section class="page-hero">
+    <span class="label">About</span>
+    <h1>Hi, I'm<br />Vaishnavi.</h1>
+  </section>
+
+  <!-- ABOUT CONTENT -->
+  <main class="about-page">
+
+    <section class="sec">
+      <h2>Who I am</h2>
+
+      <div>
+        <p>
+          I'm a multimedia experience designer who loves to notice things that
+          often go unnoticed. I'm interested in the space between technology,
+          culture and storytelling.
+        </p>
+
+        <p class="mute">
+          My work turns stories, places and cultural ideas into experiences
+          people can actually interact with.
+        </p>
       </div>
-    </footer>
-    <script src="js/main.js"></script>
-  </body>
+    </section>
+
+    <section class="sec">
+      <h2>What I do</h2>
+
+      <ul class="plain">
+        <li>UI / UX design</li>
+        <li>Immersive experiences</li>
+        <li>Visual storytelling</li>
+        <li>AR / VR</li>
+        <li>Experimental interfaces</li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>Tools</h2>
+
+      <ul class="plain">
+        <li>Unity</li>
+        <li>Blender</li>
+        <li>Figma</li>
+        <li>Illustrator</li>
+        <li>p5.js</li>
+        <li>Print prototyping</li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>Open to</h2>
+
+      <div class="tags">
+        <span>Interaction design</span>
+        <span>Visual design</span>
+        <span>Creative design</span>
+        <span>Creative direction</span>
+        <span>Experience design</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="foot" id="contact">
+    <h2>Say Hello!!</h2>
+    <p>Let's connect.</p>
+
+    <a class="mail" href="mailto:veeven.des12@gmail.com">
+      veeven.des12@gmail.com
+    </a>
+
+    <div class="foot-row">
+      <span>&copy; 2026 Vaishnavi Venkatesh</span>
+
+      <div>
+        <a
+          href="https://github.com/blueexev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >github</a>
+
+        <a
+          href="https://www.behance.net/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >behance</a>
+
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >instagram</a>
+
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >linkedin</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
 </html>

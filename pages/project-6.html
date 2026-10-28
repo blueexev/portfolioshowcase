@@ -1,145 +1,1059 @@
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Taru — Case study</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/style.css" />
-  </head>
-  <body>
-    <div class="cursor"></div>
-    <!-- HEADER: logo (links home) and navigation -->
-    <header class="site-head">
-      <a class="logo" href="../home.html" aria-label="Home"
-        ><img
-          src="../assets/logo.png"
-          alt="Home"
-          onerror="
-            this.onerror = null;
-            this.src = '../assets/logo.svg';
-          "
-      /></a>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="../work.html" class="on">Work</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../playground.html">Playground</a></li>
-          <li><a href="../slice.html">Slice of life</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- PAGE TITLE -->
-    <section class="page-hero">
-      <span class="label">Case study 06</span>
-      <h1 style="font-size: clamp(25.2px, 5.1vw, 84px)">Taru</h1>
-      <p class="whatif" style="color: inherit">
-        What if learning to recognise emotions meant matching faces to feelings through the nine
-        Navarasas?
-      </p>
-      <div class="tags">
-        <span>Board Game</span><span>Emotional Learning</span><span>Inclusive Design</span>
-      </div>
-    </section>
-    <!-- PROJECT DETAILS -->
-    <div class="meta">
-      <div><span class="label">Year</span><b>2024</b></div>
-      <div><span class="label">Type</span><b>Board game</b></div>
-      <div><span class="label">Role</span><b>Game design</b></div>
-      <div><span class="label">Tools</span><b>Illustrator / Print prototyping</b></div>
-    </div>
-    <!-- MAIN PROJECT IMAGE -->
-    <div class="case-img hatch">
-      <img src="../imagezz/taru.png" alt="Taru" onerror="this.remove()" />
-    </div>
-    <!-- CASE STUDY: section list on the left, content on the right -->
-    <div class="case-layout">
-      <aside class="case-nav" aria-label="Sections">
-        <span class="label">Sections</span>
-        <ol>
-          <li>
-            <a href="#overview" class="on"><small>01</small>Overview</a>
-          </li>
-          <li>
-            <a href="#context"><small>02</small>Context</a>
-          </li>
-          <li>
-            <a href="#concept"><small>03</small>Concept</a>
-          </li>
-          <li>
-            <a href="#execution"><small>04</small>Execution</a>
-          </li>
-          <li>
-            <a href="#significance"><small>05</small>Significance</a>
-          </li>
-        </ol>
-      </aside>
-      <div class="case-main">
-        <!-- CASE STUDY SECTION: overview -->
-        <section class="csec" id="overview">
-          <h2>Overview</h2>
-          <p>
-            A board game on emotional recognition through expressions, colour and the nine
-            Navarasas, designed for autistic kids to hold, sort and talk about.
-          </p>
-        </section>
-        <!-- CASE STUDY SECTION: context -->
-        <section class="csec" id="context">
-          <h2>Context</h2>
-          <p class="mute">
-            Add the background: where this started, who it is for and what was missing.
-          </p>
-          <div class="ph">Context image</div>
-        </section>
-        <!-- CASE STUDY SECTION: concept -->
-        <section class="csec" id="concept">
-          <h2>Concept</h2>
-          <p class="mute">Add the big idea and the thinking behind it.</p>
-          <div class="ph">Concept image</div>
-        </section>
-        <!-- CASE STUDY SECTION: execution -->
-        <section class="csec" id="execution">
-          <h2>Execution</h2>
-          <p class="mute">Add how you made it: process, tools, prototypes and what you tested.</p>
-          <div class="ph">Execution image</div>
-        </section>
-        <!-- CASE STUDY SECTION: significance -->
-        <section class="csec" id="significance">
-          <h2>Significance</h2>
-          <p class="mute">Add why it matters: the impact, the feedback and what you learned.</p>
-          <div class="ph">Significance image</div>
-        </section>
-      </div>
-    </div>
-    <!-- PREVIOUS / NEXT PROJECT -->
-    <nav class="pn">
-      <a href="project-5.html"><small>← Previous</small>The Temple That Speaks</a
-      ><a href="project-1.html"><small>Next →</small>Dhanushkodi — The Lost Land</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lushe — Case study</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    /* =========================================================
+       IMAGE SIZE CONTROLS
+       Change these values to resize images independently.
+       ========================================================= */
+
+    :root {
+      --lushe-main-width: 90%;
+      --lushe-story-width: 88%;
+      --lushe-inspiration-width: 85%;
+      --lushe-opportunity-width: 88%;
+      --lushe-brand-width: 88%;
+      --lushe-logo-width: 90%;
+      --lushe-component-width: 88%;
+      --lushe-packaging-width: 88%;
+      --lushe-range-width: 88%;
+      --lushe-campaign-width: 88%;
+      --lushe-final-width: 88%;
+
+      --lushe-section-gap: 42px;
+      --lushe-image-gap: 16px;
+      --lushe-grid-gap: 18px;
+    }
+
+    /* =========================================================
+       TEXT: APPROXIMATELY 20% SMALLER
+       ========================================================= */
+
+    body {
+      font-size: 7.68px;
+    }
+
+    .label {
+      font-size: 6.24px;
+    }
+
+    .site-nav a {
+      font-size: 9.12px;
+    }
+
+    .whatif {
+      font-size: clamp(9.6px, 1.25vw, 17.28px);
+    }
+
+    .meta b {
+      font-size: 8.64px;
+    }
+
+    .ph {
+      font-size: 6.72px;
+    }
+
+    .pn a {
+      font-size: clamp(10.56px, 1.54vw, 21.12px);
+    }
+
+    .pn small {
+      font-size: 6.24px;
+    }
+
+    .foot h2 {
+      font-size: clamp(22.08px, 4.32vw, 67.2px);
+    }
+
+    .foot p {
+      font-size: clamp(9.6px, 1.25vw, 16.32px);
+    }
+
+    .foot .mail {
+      font-size: clamp(7.68px, 0.96vw, 12.48px);
+    }
+
+    .foot-row {
+      font-size: 8.16px;
+    }
+
+    .case-nav a {
+      font-size: 11.2px;
+    }
+
+    .case-nav small {
+      font-size: 8.8px;
+    }
+
+    .csec h2 {
+      font-size: clamp(22.4px, 3.36vw, 48px);
+      margin-bottom: 14px;
+    }
+
+    .csec h3.sub {
+      font-size: inherit;
+    }
+
+    .csec p {
+      font-size: clamp(10.4px, 1.2vw, 16px);
+      margin: 0;
+    }
+
+    .csec p + p {
+      margin-top: 0.9em;
+    }
+
+    .tags span {
+      font-size: 8px;
+    }
+
+    .page-hero .tags span {
+      font-size: 8.8px;
+    }
+
+    /* =========================================================
+       REDUCED WHITESPACE
+       ========================================================= */
+
+    .page-hero {
+      padding: 130px var(--pad) 30px;
+    }
+
+    .meta {
+      padding-bottom: 30px;
+    }
+
+    .case-layout {
+      padding-top: 40px;
+    }
+
+    .csec {
+      padding-bottom: var(--lushe-section-gap);
+    }
+
+    .csec p,
+    .page-hero p {
+      max-width: none;
+    }
+
+    .csec .ph {
+      margin-top: var(--lushe-image-gap);
+    }
+
+    .csec p.goal {
+      font-size: 1.1em;
+      line-height: 1.5;
+      margin-top: 20px;
+    }
+
+    .pn {
+      margin-top: 50px;
+    }
+
+    .pn a {
+      padding: 28px var(--pad);
+    }
+
+    .foot {
+      padding: 48px var(--pad) 26px;
+    }
+
+    /* =========================================================
+       GENERAL IMAGE BEHAVIOUR
+       No cropping. Images scale inside their frames.
+       ========================================================= */
+
+    .shot,
+    .ph.shot {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .shot img,
+    .ph img {
+      position: relative;
+      inset: auto;
+      display: block;
+      width: var(--image-width, 100%);
+      height: var(--image-height, 100%);
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      flex-shrink: 0;
+    }
+
+    .ph.shot {
+      padding: 8px;
+    }
+
+    .shot-wide {
+      aspect-ratio: 16 / 9;
+      margin-top: var(--lushe-image-gap);
+    }
+
+    .shot-banner {
+      aspect-ratio: 21 / 9;
+      margin-top: var(--lushe-image-gap);
+    }
+
+    .case-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .case-img img {
+      display: block;
+      width: var(--lushe-main-width);
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    /* =========================================================
+       BRAND STORY
+       ========================================================= */
+
+    .pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--lushe-grid-gap);
+      margin-top: var(--lushe-image-gap);
+    }
+
+    .pair .ph {
+      aspect-ratio: 4 / 3;
+    }
+
+    .pair .ph img {
+      width: var(--lushe-story-width);
+      height: 92%;
+    }
+
+    /* =========================================================
+       IMAGE GRIDS
+       ========================================================= */
+
+    .items {
+      display: grid;
+      gap: 24px var(--lushe-grid-gap);
+      margin-top: var(--lushe-image-gap);
+    }
+
+    .items.c3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .items.c4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .item .ph {
+      aspect-ratio: 4 / 3;
+      margin-bottom: 10px;
+    }
+
+    .items.tall .item .ph {
+      aspect-ratio: 3 / 4;
+    }
+
+    .item .ph img {
+      width: var(--image-width, var(--lushe-opportunity-width));
+      height: 92%;
+    }
+
+    .item h4 {
+      margin: 0 0 6px;
+      font: inherit;
+      font-weight: bold;
+    }
+
+    .item p {
+      margin: 0;
+    }
+
+    /* Opportunity illustrations */
+    #opportunity .item:nth-child(1) .ph img,
+    #opportunity .item:nth-child(2) .ph img,
+    #opportunity .item:nth-child(3) .ph img {
+      width: var(--lushe-opportunity-width);
+    }
+
+    /* =========================================================
+       INSPIRATION AND BRAND IMAGES
+       ========================================================= */
+
+    #inspiration .shot img {
+      width: var(--lushe-inspiration-width);
+      height: 92%;
+    }
+
+    #brand .shot img {
+      width: var(--lushe-brand-width);
+      height: 92%;
+    }
+
+    /* =========================================================
+       LOGO AND COMPONENTS
+       ========================================================= */
+
+    #logo > .shot img {
+      width: var(--lushe-logo-width);
+      height: 92%;
+    }
+
+    #logo .items .ph img {
+      width: var(--lushe-component-width);
+      height: 92%;
+    }
+
+    .sub {
+      margin: 24px 0 8px;
+      font: inherit;
+      font-weight: bold;
+    }
+
+    /* =========================================================
+       PACKAGING
+       ========================================================= */
+
+    #packaging .shot img {
+      width: var(--lushe-packaging-width);
+      height: 92%;
+    }
+
+    /* =========================================================
+       PRODUCT RANGE
+       ========================================================= */
+
+    #range .item .ph img {
+      width: var(--lushe-range-width);
+      height: 94%;
+    }
+
+    /* =========================================================
+       CAMPAIGN
+       ========================================================= */
+
+    #campaign .shot img {
+      width: var(--lushe-campaign-width);
+      height: 92%;
+    }
+
+    /* =========================================================
+       FINAL BRAND SYSTEM
+       ========================================================= */
+
+    #system .shot img {
+      width: var(--lushe-final-width);
+      height: 92%;
+    }
+
+    /* =========================================================
+       OPTIONAL INDIVIDUAL IMAGE POSITION ADJUSTMENTS
+
+       Uncomment a rule and change the values to move an image.
+       Positive X = right; negative X = left.
+       Positive Y = down; negative Y = up.
+       ========================================================= */
+
+    /*
+    #context .case-img img {
+      transform: translate(0px, 0px);
+    }
+
+    #story .pair .ph:nth-child(1) img {
+      transform: translate(0px, 0px);
+    }
+
+    #story .pair .ph:nth-child(2) img {
+      transform: translate(0px, 0px);
+    }
+
+    #inspiration .shot img {
+      transform: translate(0px, 0px);
+    }
+
+    #opportunity .item:nth-child(1) .ph img {
+      transform: translate(0px, 0px);
+    }
+
+    #opportunity .item:nth-child(2) .ph img {
+      transform: translate(0px, 0px);
+    }
+
+    #opportunity .item:nth-child(3) .ph img {
+      transform: translate(0px, 0px);
+    }
+
+    #brand .shot img {
+      transform: translate(0px, 0px);
+    }
+
+    #logo > .shot:nth-of-type(1) img {
+      transform: translate(0px, 0px);
+    }
+
+    #logo > .shot:nth-of-type(2) img {
+      transform: translate(0px, 0px);
+    }
+
+    #packaging .shot img {
+      transform: translate(0px, 0px);
+    }
+
+    #range .item:nth-child(1) .ph img {
+      transform: translate(0px, 0px);
+    }
+
+    #range .item:nth-child(2) .ph img {
+      transform: translate(0px, 0px);
+    }
+
+    #range .item:nth-child(3) .ph img {
+      transform: translate(0px, 0px);
+    }
+
+    #range .item:nth-child(4) .ph img {
+      transform: translate(0px, 0px);
+    }
+
+    #campaign .shot img {
+      transform: translate(0px, 0px);
+    }
+
+    #system .shot:nth-of-type(1) img {
+      transform: translate(0px, 0px);
+    }
+
+    #system .shot:nth-of-type(2) img {
+      transform: translate(0px, 0px);
+    }
+    */
+
+    /* =========================================================
+       RESPONSIVE LAYOUT
+       ========================================================= */
+
+    @media (min-width: 901px) {
+      .case-layout {
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .case-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 820px) {
+      .pair,
+      .items.c3 {
+        grid-template-columns: 1fr;
+      }
+
+      .items.c4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .items[style*="grid-template-columns: repeat(2"] {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .pair .ph {
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page-hero {
+        padding-top: 110px;
+      }
+
+      .items.c4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .items[style*="grid-template-columns: repeat(2"] {
+        grid-template-columns: 1fr !important;
+      }
+
+      .shot-wide,
+      .shot-banner {
+        aspect-ratio: 4 / 3;
+      }
+
+      .csec {
+        padding-bottom: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor"></div>
+
+  <!-- HEADER -->
+  <header class="site-head">
+    <a class="logo" href="../home.html" aria-label="Home">
+      <img
+        src="../imagezz/vvc%20logo.png"
+        alt="Home"
+        onerror="this.onerror=null; this.src='../assets/logo.svg';"
+      />
+    </a>
+
+    <nav class="site-nav">
+      <ul>
+        <li><a href="../work.html" class="on">Work</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../playground.html">Playground</a></li>
+        <li><a href="../slice.html">Slice of life</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-    <!-- FOOTER: say hello and social links -->
-    <footer class="foot" id="contact">
-      <h2>Say Hello!!</h2>
-      <p>Let's connect.</p>
-      <a class="mail" href="mailto:veeven.des12@gmail.com">veeven.des12@gmail.com</a>
-      <div class="foot-row">
-        <span>&copy; 2026 Vaishnavi Venkatesh</span>
-        <div>
-          <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a
-          ><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a
-          ><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-            >instagram</a
-          ><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
-            >linkedin</a
-          >
+  </header>
+
+  <!-- PAGE TITLE -->
+  <section class="page-hero">
+    <span class="label">Case study 05</span>
+
+    <h1 style="font-size: clamp(20.16px, 4.08vw, 67.2px)">
+      Lushe
+    </h1>
+
+    <p class="whatif" style="color: inherit">
+      What if hair care started by understanding your curls instead of trying to correct them?
+    </p>
+
+    <div class="tags">
+      <span>Branding</span>
+      <span>Visual Identity</span>
+      <span>Packaging</span>
+    </div>
+  </section>
+
+  <!-- PROJECT DETAILS -->
+  <div class="meta">
+    <div>
+      <span class="label">Year</span>
+      <b>2024</b>
+    </div>
+
+    <div>
+      <span class="label">Type</span>
+      <b>Conceptual brand</b>
+    </div>
+
+    <div>
+      <span class="label">Role</span>
+      <b>Brand strategy, identity, packaging</b>
+    </div>
+
+    <div>
+      <span class="label">Tools</span>
+      <b>—</b>
+    </div>
+  </div>
+
+  <!-- MAIN PROJECT IMAGE -->
+  <div class="case-img hatch">
+    <img
+      src="../imagezz/Lushe.png"
+      alt="Lushe"
+      onerror="this.remove()"
+    />
+  </div>
+
+  <!-- CASE STUDY -->
+  <div class="case-layout">
+    <aside class="case-nav" aria-label="Sections">
+      <span class="label">Sections</span>
+
+      <ol>
+        <li><a href="#context" class="on"><small>01</small>Context</a></li>
+        <li><a href="#story"><small>02</small>Brand story</a></li>
+        <li><a href="#inspiration"><small>03</small>Inspiration</a></li>
+        <li><a href="#opportunity"><small>04</small>Opportunity</a></li>
+        <li><a href="#audience"><small>05</small>Target audience</a></li>
+        <li><a href="#brand"><small>06</small>Our brand</a></li>
+        <li><a href="#logo"><small>07</small>Logo &amp; identity</a></li>
+        <li><a href="#packaging"><small>08</small>Packaging</a></li>
+        <li><a href="#range"><small>09</small>Product range</a></li>
+        <li><a href="#campaign"><small>10</small>Campaign</a></li>
+        <li><a href="#system"><small>11</small>Final brand system</a></li>
+      </ol>
+    </aside>
+
+    <div class="case-main">
+
+      <!-- CONTEXT -->
+      <section class="csec" id="context">
+        <h2>Context</h2>
+
+        <p>
+          Lushe is a conceptual hair-care brand designed around the natural movement,
+          individuality and beauty of curly hair. The project explores how a cohesive visual
+          identity can transform everyday hair care into a more personal, expressive and
+          enjoyable experience.
+        </p>
+
+        <p>
+          From the core brand strategy to the logo, packaging, graphic language and digital
+          communication, the identity is built around one central idea: curls do not need to be
+          controlled to be beautiful; they need care that understands them.
+        </p>
+      </section>
+
+      <!-- THE BRAND STORY -->
+      <section class="csec" id="story">
+        <h2>The brand story</h2>
+
+        <p>
+          Every curl has its own rhythm.<br />
+          Hair is deeply personal. It is part of how we see ourselves, how we express ourselves
+          and how we choose to show up in the world. Yet curly hair is often approached through
+          routines and beauty standards that prioritise control, uniformity and manageability
+          over natural texture. Lushe begins with a different perspective. Instead of treating
+          curls as something to correct, it sees them as something to understand, care for and
+          celebrate.
+        </p>
+
+        <p>
+          The brand brings together thoughtful hair care and an expressive visual identity to
+          create a world where curls can exist in their own shape, rhythm and form.
+        </p>
+
+        <p>
+          <b>Brand belief:</b> Your texture is not a problem to solve. It is a part of you to
+          celebrate.
+        </p>
+
+        <div class="pair">
+          <div class="ph shot">
+            <img
+              src="../imagezz/lushe-story-1.png"
+              alt="Brand story 1"
+              onerror="this.remove()"
+            />
+            Brand story image 1
+          </div>
+
+          <div class="ph shot">
+            <img
+              src="../imagezz/lushe-story-2.png"
+              alt="Brand story 2"
+              onerror="this.remove()"
+            />
+            Brand story image 2
+          </div>
         </div>
-      </div>
-    </footer>
-    <script src="../js/main.js"></script>
-  </body>
+      </section>
+
+      <!-- INSPIRATION -->
+      <section class="csec" id="inspiration">
+        <h2>Inspiration</h2>
+
+        <p>
+          The inspiration comes from the fluid, unpredictable nature of curly hair. No two curls
+          follow exactly the same path; they twist, bend, loop and flow in their own way. This
+          movement became the starting point for the visual identity.
+        </p>
+
+        <p>
+          Organic curves, flowing shapes and a sense of rhythm inform the logo and the broader
+          graphic language, connecting the appearance of the brand to the very thing it is
+          designed to care for. Visuals to show: a moodboard of natural curl patterns, flowing
+          lines, hair textures, sculptural forms, tactile materials and colour references.
+        </p>
+
+        <div
+          class="ph shot shot-wide"
+          style="max-width: 560px; margin-left: auto; margin-right: auto"
+        >
+          <img
+            src="../imagezz/lushe-inspiration.png"
+            alt="Moodboard"
+            onerror="this.remove()"
+          />
+          Moodboard image
+        </div>
+      </section>
+
+      <!-- THE OPPORTUNITY -->
+      <section class="csec" id="opportunity">
+        <h2>The opportunity</h2>
+
+        <p>
+          Hair care should work with texture, not against it. Curly hair can require a different
+          approach to cleansing, conditioning, moisture retention and styling. Finding the right
+          routine can involve trial and error, unfamiliar product terminology and uncertainty
+          about what works for a particular hair type.
+        </p>
+
+        <p>
+          The opportunity for Lushe is to create a brand that makes curl care feel more
+          approachable while giving natural texture a confident, contemporary identity.
+        </p>
+
+        <p>The project explores three opportunities:</p>
+
+        <div class="items c3">
+          <div class="item">
+            <div class="ph shot">
+              <img
+                src="../imagezz/lushe-opp-1.png"
+                alt="Understand the texture"
+                onerror="this.remove()"
+              />
+              Opportunity 1
+            </div>
+
+            <h4>01 — Understand the texture</h4>
+
+            <p>
+              Build a brand around the needs of wavy, curly and coily hair instead of treating all
+              hair as if it behaves the same way.
+            </p>
+          </div>
+
+          <div class="item">
+            <div class="ph shot">
+              <img
+                src="../imagezz/lushe-opp-2.png"
+                alt="Simplify the experience"
+                onerror="this.remove()"
+              />
+              Opportunity 2
+            </div>
+
+            <h4>02 — Simplify the experience</h4>
+
+            <p>
+              Make the product range, packaging and communication easier to navigate, especially
+              for people who are new to curl-specific care.
+            </p>
+          </div>
+
+          <div class="item">
+            <div class="ph shot">
+              <img
+                src="../imagezz/lushe-opp-3.png"
+                alt="Reframe the perception"
+                onerror="this.remove()"
+              />
+              Opportunity 3
+            </div>
+
+            <h4>03 — Reframe the perception</h4>
+
+            <p>
+              Move away from messaging that treats curls as unruly or difficult and toward a more
+              positive relationship with natural texture.
+            </p>
+          </div>
+        </div>
+
+        <p class="goal">
+          The goal is not simply to sell hair-care products, but to create an identity that makes
+          people feel understood.
+        </p>
+      </section>
+
+      <!-- TARGET AUDIENCE -->
+      <section class="csec" id="audience">
+        <h2>Target Audience</h2>
+
+        <p>Designed for people who want to understand their curls.</p>
+
+        <p>
+          <b>Primary audience</b><br />
+          Young adults aged approximately 18–30 with wavy, curly or coily hair who want products
+          and guidance that work with their natural texture. They may be exploring curl care for
+          the first time or refining a routine they already follow.
+        </p>
+
+        <p>
+          <b>Secondary audience</b><br />
+          People who have experience with textured hair care but are looking for products that
+          fit their preferences, styling habits and lifestyle.
+        </p>
+
+        <p>
+          <b>Audience mindset</b><br />
+          They are not necessarily looking for perfect, identical curls every day. They want hair
+          that feels healthy, looks like their own and fits into their lives.
+        </p>
+
+        <p>
+          <b>Design implication:</b> The identity should feel approachable enough for beginners,
+          expressive enough for curl enthusiasts and sophisticated enough to stand out in a
+          crowded beauty category.
+        </p>
+      </section>
+
+      <!-- OUR BRAND -->
+      <section class="csec" id="brand">
+        <h2>Our brand</h2>
+
+        <p>
+          Lushe explores a more fluid, artistic and sculptural visual direction. Rather than
+          relying exclusively on literal illustrations of curls, it translates the movement of
+          hair into an abstract brand symbol and a flexible graphic language.
+        </p>
+
+        <p>
+          This gives the identity a recognisable aesthetic that can extend across bottles,
+          labels, campaign graphics and digital touchpoints.
+        </p>
+
+        <div
+          class="ph shot shot-wide"
+          style="max-width: 640px; margin-left: auto; margin-right: auto"
+        >
+          <img
+            src="../imagezz/lushe-brand.png"
+            alt="Our brand"
+            onerror="this.remove()"
+          />
+          Brand image
+        </div>
+      </section>
+
+      <!-- LOGO AND VISUAL IDENTITY SYSTEM -->
+      <section class="csec" id="logo">
+        <h2>Logo and visual identity system</h2>
+
+        <p>
+          <b>A symbol shaped by movement</b><br />
+          The logo is built around a flowing, abstract form inspired by the movement of curly
+          hair. Its sweeping curves create a sense of continuity, while its asymmetry gives the
+          symbol a distinctive, organic personality.
+        </p>
+
+        <div class="ph shot shot-wide">
+          <img
+            src="../imagezz/lushe-logo-1.png"
+            alt="Logo 1"
+            onerror="this.remove()"
+          />
+          Logo image 1
+        </div>
+
+        <div class="ph shot shot-wide">
+          <img
+            src="../imagezz/lushe-logo-2.png"
+            alt="Logo 2"
+            onerror="this.remove()"
+          />
+          Logo image 2
+        </div>
+
+        <h3 class="sub">Components</h3>
+
+        <div class="items" style="grid-template-columns: repeat(2, minmax(0, 1fr))">
+          <div class="item">
+            <div class="ph shot">
+              <img src="../imagezz/lushe-component-1.png" alt="Component 1" onerror="this.remove()" />
+              Component 1
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="ph shot">
+              <img src="../imagezz/lushe-component-2.png" alt="Component 2" onerror="this.remove()" />
+              Component 2
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="ph shot">
+              <img src="../imagezz/lushe-component-3.png" alt="Component 3" onerror="this.remove()" />
+              Component 3
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="ph shot">
+              <img src="../imagezz/lushe-component-4.png" alt="Component 4" onerror="this.remove()" />
+              Component 4
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PACKAGING DESIGN -->
+      <section class="csec" id="packaging">
+        <h2>Packaging design</h2>
+
+        <div class="ph shot shot-wide">
+          <img
+            src="../imagezz/lushe-packaging.png"
+            alt="Packaging design"
+            onerror="this.remove()"
+          />
+          Packaging image
+        </div>
+      </section>
+
+      <!-- PRODUCT RANGE -->
+      <section class="csec" id="range">
+        <h2>Product Range</h2>
+
+        <div class="items c4 tall">
+          <div class="item">
+            <div class="ph shot">
+              <img src="../imagezz/lushe-range-1.png" alt="Cleanse" onerror="this.remove()" />
+              Cleanse
+            </div>
+            <p>01 — Cleanse</p>
+          </div>
+
+          <div class="item">
+            <div class="ph shot">
+              <img src="../imagezz/lushe-range-2.png" alt="Condition" onerror="this.remove()" />
+              Condition
+            </div>
+            <p>02 — Condition</p>
+          </div>
+
+          <div class="item">
+            <div class="ph shot">
+              <img src="../imagezz/lushe-range-3.png" alt="Nourish" onerror="this.remove()" />
+              Nourish
+            </div>
+            <p>03 — Nourish</p>
+          </div>
+
+          <div class="item">
+            <div class="ph shot">
+              <img src="../imagezz/lushe-range-4.png" alt="Define" onerror="this.remove()" />
+              Define
+            </div>
+            <p>04 — Define</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAMPAIGN AND DIGITAL COMMUNICATION -->
+      <section class="csec" id="campaign">
+        <h2>Campaign and digital communication</h2>
+
+        <p>
+          The campaign supports the brand’s core idea into communication that feels personal,
+          expressive and consistent.
+        </p>
+
+        <p>
+          The aim is to show natural texture as an individual experience rather than a single
+          beauty ideal. The same visual elements used on packaging carry into social media,
+          digital touchpoints and campaign materials.
+        </p>
+
+        <h3 class="sub">Proposed campaign concept: “Every Curl, Its Own Story”</h3>
+
+        <p>
+          The campaign celebrates the variation in natural hair textures through close-up
+          photography, expressive typography and flowing graphic forms.<br />
+          Each visual focuses on a different aspect of curl care: understanding texture,
+          building a routine, defining curls or embracing natural movement.
+        </p>
+
+        <div class="ph shot shot-wide">
+          <img
+            src="../imagezz/lushe-campaign.png"
+            alt="Campaign"
+            onerror="this.remove()"
+          />
+          Campaign image
+        </div>
+      </section>
+
+      <!-- FINAL BRAND SYSTEM -->
+      <section class="csec" id="system">
+        <h2>Final brand system</h2>
+
+        <p>
+          The brand speaks with warmth, confidence and clarity. It avoids language that suggests
+          natural curls are inherently unruly or need to be corrected.
+        </p>
+
+        <p>
+          This project explores how a brand’s visual identity can emerge from a product’s
+          purpose rather than being added as decoration. By connecting the movement of curls to
+          the logo and broader graphic system, the design creates a visual language that can
+          extend across multiple touchpoints.
+        </p>
+
+        <div class="ph shot shot-wide">
+          <img
+            src="../imagezz/lushe-final-1.png"
+            alt="Final brand system 1"
+            onerror="this.remove()"
+          />
+          Final image 1
+        </div>
+
+        <div class="ph shot shot-wide">
+          <img
+            src="../imagezz/lushe-final-2.png"
+            alt="Final brand system 2"
+            onerror="this.remove()"
+          />
+          Final image 2
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- PREVIOUS / NEXT PROJECT -->
+  <nav class="pn">
+    <a href="project-4.html">
+      <small>← Previous</small>
+      ITI
+    </a>
+
+    <a href="project-6.html">
+      <small>Next →</small>
+      Taru
+    </a>
+  </nav>
+
+  <!-- FOOTER -->
+  <footer class="foot" id="contact">
+    <span>&copy; 2026 Vaishnavi Venkatesh</span>
+
+    <div>
+      <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a>
+      <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">instagram</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">linkedin</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
 </html>

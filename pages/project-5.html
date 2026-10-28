@@ -1,148 +1,1072 @@
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Temple That Speaks — Case study</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/style.css" />
-  </head>
-  <body>
-    <div class="cursor"></div>
-    <!-- HEADER: logo (links home) and navigation -->
-    <header class="site-head">
-      <a class="logo" href="../home.html" aria-label="Home"
-        ><img
-          src="../assets/logo.png"
-          alt="Home"
-          onerror="
-            this.onerror = null;
-            this.src = '../assets/logo.svg';
-          "
-      /></a>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="../work.html" class="on">Work</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../playground.html">Playground</a></li>
-          <li><a href="../slice.html">Slice of life</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- PAGE TITLE -->
-    <section class="page-hero">
-      <span class="label">Case study 05</span>
-      <h1 style="font-size: clamp(25.2px, 5.1vw, 84px)">The Temple That Speaks</h1>
-      <p class="whatif" style="color: inherit">
-        What if the carvings on a temple wall could tell their own history when you touched them?
-      </p>
-      <div class="tags">
-        <span>Immersive</span><span>Museum</span><span>Experience Design</span>
-      </div>
-    </section>
-    <!-- PROJECT DETAILS -->
-    <div class="meta">
-      <div><span class="label">Year</span><b>2024</b></div>
-      <div><span class="label">Type</span><b>Immersive museum</b></div>
-      <div><span class="label">Role</span><b>Experience design</b></div>
-      <div><span class="label">Tools</span><b>Unity / Blender</b></div>
-    </div>
-    <!-- MAIN PROJECT IMAGE -->
-    <div class="case-img hatch">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Second Sight — Case Study</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    /* =========================================================
+       TYPOGRAPHY — MATCH DHANUSHKODI PAGE
+       ========================================================= */
+
+    body {
+      font-size: 7.68px;
+    }
+
+    .label {
+      font-size: 6.24px;
+    }
+
+    .site-nav a {
+      font-size: 9.12px;
+    }
+
+    .whatif {
+      font-size: clamp(9.6px, 1.25vw, 17.28px);
+    }
+
+    .meta b {
+      font-size: 8.64px;
+    }
+
+    .ph {
+      font-size: 6.72px;
+    }
+
+    .pn a {
+      font-size: clamp(10.56px, 1.54vw, 21.12px);
+    }
+
+    .pn small {
+      font-size: 6.24px;
+    }
+
+    .foot h2 {
+      font-size: clamp(22.08px, 4.32vw, 67.2px);
+    }
+
+    .foot p {
+      font-size: clamp(9.6px, 1.25vw, 16.32px);
+    }
+
+    .foot .mail {
+      font-size: clamp(7.68px, 0.96vw, 12.48px);
+    }
+
+    .foot-row {
+      font-size: 8.16px;
+    }
+
+    .case-nav a {
+      font-size: 11.2px;
+    }
+
+    .case-nav small {
+      font-size: 8.8px;
+    }
+
+    .csec h2 {
+      font-size: clamp(22.4px, 3.36vw, 48px);
+      margin-bottom: 14px;
+    }
+
+    .csec p {
+      font-size: clamp(10.4px, 1.2vw, 16px);
+      margin: 0;
+    }
+
+    .csec p + p {
+      margin-top: 0.9em;
+    }
+
+    .tags span {
+      font-size: 8px;
+    }
+
+    .page-hero .tags span {
+      font-size: 8.8px;
+    }
+
+    .case-main h3 {
+      font-size: 1.287em;
+      font-weight: bold;
+    }
+
+    /* =========================================================
+       SPACING — SAME AS DHANUSHKODI
+       ========================================================= */
+
+    .page-hero {
+      padding: 130px var(--pad) 30px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(20.16px, 4.08vw, 67.2px);
+    }
+
+    .page-hero p,
+    .csec p {
+      max-width: none;
+    }
+
+    .meta {
+      padding-bottom: 30px;
+    }
+
+    .case-layout {
+      padding-top: 40px;
+    }
+
+    .csec {
+      padding-bottom: 56px;
+    }
+
+    .csec h2 {
+      margin-bottom: 14px;
+    }
+
+    .pn {
+      margin-top: 60px;
+    }
+
+    .pn a {
+      padding: 32px var(--pad);
+    }
+
+    .foot {
+      padding: 56px var(--pad) 28px;
+    }
+
+    /* =========================================================
+       HEADER — MATCH DHANUSHKODI PAGE
+       ========================================================= */
+
+    .site-head .logo {
+      position: relative;
+      left: 10px;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 220px;
+      height: auto;
+      max-width: none;
+      overflow: visible;
+      flex-shrink: 0;
+      transform: scale(1);
+      transform-origin: left center;
+      transition: transform 0.35s ease;
+    }
+
+    .site-head .logo:hover {
+      transform: scale(1.03);
+    }
+
+    .site-head .logo img {
+      position: static;
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 96px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 0;
+      transform: none;
+      transition: none;
+    }
+
+    .site-head .logo:hover img {
+      transform: none;
+    }
+
+    .site-nav {
+      min-width: 0;
+      max-width: 180px;
+      overflow: visible;
+    }
+
+    .site-nav ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 7px;
+    }
+
+    .site-nav li {
+      max-width: 100%;
+    }
+
+    .site-nav a {
+      white-space: normal;
+      overflow-wrap: anywhere;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 760px) {
+      .site-head .logo {
+        width: 160px;
+      }
+
+      .site-nav {
+        max-width: 145px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .site-head .logo {
+        transition: none;
+      }
+    }
+
+    /* =========================================================
+       MAIN PROJECT IMAGE — 80% WIDTH, CENTRED, NEVER CROPPED
+       ========================================================= */
+
+    .case-img {
+      display: block;
+      width: 80%;
+      max-width: none;
+      height: auto;
+      margin: 0 auto;
+      padding: 0;
+      border: 0;
+      background: none;
+      aspect-ratio: auto;
+      overflow: visible;
+    }
+
+    .case-img img {
+      position: static;
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      max-height: none;
+      margin: 0 auto;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .case-img:not(:has(img)) {
+      display: none;
+    }
+
+    /* =========================================================
+       CASE STUDY LAYOUT
+       ========================================================= */
+
+    .case-layout {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      align-items: start;
+      gap: 40px;
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      margin: 0;
+      overflow: visible;
+    }
+
+    .case-nav {
+      position: relative;
+      width: 100%;
+      min-width: 0;
+      padding: 0;
+      overflow: visible;
+    }
+
+    .case-nav ol {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      width: 100%;
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+    }
+
+    .case-nav li {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .case-nav a {
+      display: block;
+      width: 100%;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .case-nav a small {
+      margin-right: 7px;
+    }
+
+    .case-main {
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .csec {
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      margin: 0;
+      scroll-margin-top: 30px;
+    }
+
+    .csec h2 {
+      line-height: 1.2;
+    }
+
+    .csec p {
+      line-height: 1.8;
+    }
+
+    /* =========================================================
+       SECTION IMAGES — 80% WIDTH, CENTRED
+       ========================================================= */
+
+    .csec .ph {
+      display: block;
+      width: 80%;
+      max-width: none;
+      height: auto;
+      min-height: 0;
+      margin: 20px auto 0;
+      padding: 0;
+      border: 0;
+      background: none;
+      aspect-ratio: auto;
+      overflow: visible;
+      text-align: center;
+    }
+
+    .csec .ph:has(img) {
+      display: block;
+      border: 0;
+      background: none;
+    }
+
+    .csec .ph:not(:has(img)) {
+      min-height: 120px;
+    }
+
+    .csec .ph img {
+      position: static;
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      max-height: none;
+      margin: 0 auto;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .csec .ph:has(img) .lbl {
+      display: none;
+    }
+
+    .shot,
+    .shot-wide,
+    .shot-banner,
+    .shot-center {
+      aspect-ratio: auto;
+    }
+
+    /* =========================================================
+       POSTCARD GRID
+       ========================================================= */
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 16px;
+      width: 80%;
+      margin: 20px auto 0;
+    }
+
+    .grid2 .ph {
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .grid2 .ph img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* =========================================================
+       PHONE MOCKUPS
+       ========================================================= */
+
+    .phones {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 14px;
+      width: 80%;
+      margin: 20px auto 0;
+    }
+
+    .phones .ph {
+      display: block;
+      flex: 0 1 160px;
+      width: 160px;
+      max-width: 46%;
+      min-width: 0;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      aspect-ratio: auto;
+    }
+
+    .phones .ph img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* =========================================================
+       INSTALLATION IMAGES
+       ========================================================= */
+
+    .install {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+      align-items: start;
+      gap: 16px;
+      width: 80%;
+      margin: 20px auto 0;
+    }
+
+    .install .ph,
+    .install .ph + .ph {
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      aspect-ratio: auto;
+    }
+
+    .install .ph img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* =========================================================
+       FRAMES LIST
+       ========================================================= */
+
+    .frames {
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+    }
+
+    .frames li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       EXPERIENCE FLOW — SAME WIDTH AS OTHER PAGE
+       ========================================================= */
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 36px 48px;
+      width: 80%;
+      max-width: 640px;
+      margin: 24px auto 0;
+    }
+
+    .flow .step {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      min-height: 80px;
+      padding: 14px 12px;
+      border: 1px solid currentColor;
+      font-size: 7.68px;
+      line-height: 1.6;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    .flow .step::after {
+      content: "";
+      position: absolute;
+      background: currentColor;
+      opacity: 0.6;
+    }
+
+    .flow .r::after {
+      right: -48px;
+      top: 50%;
+      width: 48px;
+      height: 1px;
+    }
+
+    .flow .d::after {
+      left: 50%;
+      bottom: -36px;
+      width: 1px;
+      height: 36px;
+    }
+
+    .flow .l::after {
+      left: -48px;
+      top: 50%;
+      width: 48px;
+      height: 1px;
+    }
+
+    .flow .u::after {
+      left: 50%;
+      top: -36px;
+      width: 1px;
+      height: 36px;
+    }
+
+    .s1 { grid-column: 1; grid-row: 1; }
+    .s2 { grid-column: 2; grid-row: 1; }
+    .s3 { grid-column: 3; grid-row: 1; }
+    .s4 { grid-column: 3; grid-row: 2; }
+    .s5 { grid-column: 3; grid-row: 3; }
+    .s6 { grid-column: 2; grid-row: 3; }
+    .s7 { grid-column: 1; grid-row: 3; }
+    .s8 { grid-column: 1; grid-row: 2; }
+
+    /* =========================================================
+       PREVIOUS / NEXT PROJECT AND FOOTER
+       ========================================================= */
+
+    .pn {
+      width: 100%;
+      max-width: none;
+    }
+
+    .foot {
+      width: 100%;
+      max-width: none;
+    }
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width: 900px) {
+      .case-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+      }
+
+      .case-nav {
+        position: relative;
+      }
+
+      .case-nav ol {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px 20px;
+      }
+
+      .case-img,
+      .csec .ph,
+      .grid2,
+      .phones,
+      .install,
+      .flow {
+        width: 85%;
+      }
+
+      .flow {
+        gap: 28px 32px;
+      }
+
+      .flow .r::after {
+        right: -32px;
+        width: 32px;
+      }
+
+      .flow .l::after {
+        left: -32px;
+        width: 32px;
+      }
+    }
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 820px) {
+      .grid2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .install {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .phones {
+        justify-content: flex-start;
+      }
+
+      .phones .ph {
+        flex-basis: 42%;
+        max-width: 180px;
+      }
+
+      .flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .flow .step {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        min-height: 68px;
+      }
+
+      .flow .step::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page-hero {
+        padding-top: 100px;
+      }
+
+      .case-img,
+      .csec .ph,
+      .grid2,
+      .phones,
+      .install,
+      .flow {
+        width: 100%;
+      }
+
+      .grid2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .phones {
+        justify-content: flex-start;
+      }
+
+      .phones .ph {
+        flex-basis: 44%;
+        max-width: 160px;
+      }
+
+      .flow {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .flow .step {
+        min-height: 54px;
+      }
+
+      .case-nav ol {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .pn {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .pn a {
+        padding: 20px var(--pad);
+      }
+
+      .foot {
+        gap: 16px;
+      }
+    }
+  </style>
+
+  <script>
+    function logoFallback(img) {
+      var paths = (
+        img.dataset.f ||
+        "../portfolio/imagezz/vvc%20logo.png|../assets/logo.png|../assets/logo.svg"
+      ).split("|").filter(Boolean);
+
+      if (paths.length) {
+        img.onerror = function () {
+          logoFallback(img);
+        };
+
+        img.src = paths.shift();
+        img.dataset.f = paths.join("|");
+      } else {
+        img.onerror = null;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="cursor"></div>
+
+  <!-- HEADER -->
+  <header class="site-head">
+    <a class="logo" href="../home.html" aria-label="Home">
       <img
-        src="../imagezz/DigitalMuseum.png"
-        alt="The Temple That Speaks"
-        onerror="this.remove()"
+        src="../imagezz/vvc%20logo.png"
+        alt="Home"
+        onerror="logoFallback(this)"
       />
-    </div>
-    <!-- CASE STUDY: section list on the left, content on the right -->
-    <div class="case-layout">
-      <aside class="case-nav" aria-label="Sections">
-        <span class="label">Sections</span>
-        <ol>
-          <li>
-            <a href="#overview" class="on"><small>01</small>Overview</a>
-          </li>
-          <li>
-            <a href="#context"><small>02</small>Context</a>
-          </li>
-          <li>
-            <a href="#concept"><small>03</small>Concept</a>
-          </li>
-          <li>
-            <a href="#execution"><small>04</small>Execution</a>
-          </li>
-          <li>
-            <a href="#significance"><small>05</small>Significance</a>
-          </li>
-        </ol>
-      </aside>
-      <div class="case-main">
-        <!-- CASE STUDY SECTION: overview -->
-        <section class="csec" id="overview">
-          <h2>Overview</h2>
-          <p>
-            An interactive museum experience on the culture and tradition of Tamil Nadu. Visitors
-            trigger carved details that unfold into sound, story and animation.
-          </p>
-        </section>
-        <!-- CASE STUDY SECTION: context -->
-        <section class="csec" id="context">
-          <h2>Context</h2>
-          <p class="mute">
-            Add the background: where this started, who it is for and what was missing.
-          </p>
-          <div class="ph">Context image</div>
-        </section>
-        <!-- CASE STUDY SECTION: concept -->
-        <section class="csec" id="concept">
-          <h2>Concept</h2>
-          <p class="mute">Add the big idea and the thinking behind it.</p>
-          <div class="ph">Concept image</div>
-        </section>
-        <!-- CASE STUDY SECTION: execution -->
-        <section class="csec" id="execution">
-          <h2>Execution</h2>
-          <p class="mute">Add how you made it: process, tools, prototypes and what you tested.</p>
-          <div class="ph">Execution image</div>
-        </section>
-        <!-- CASE STUDY SECTION: significance -->
-        <section class="csec" id="significance">
-          <h2>Significance</h2>
-          <p class="mute">Add why it matters: the impact, the feedback and what you learned.</p>
-          <div class="ph">Significance image</div>
-        </section>
-      </div>
-    </div>
-    <!-- PREVIOUS / NEXT PROJECT -->
-    <nav class="pn">
-      <a href="project-4.html"><small>← Previous</small>ITI</a
-      ><a href="project-6.html"><small>Next →</small>Taru</a>
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../work.html" class="on">Work</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../playground.html">Playground</a></li>
+        <li><a href="../slice.html">Slice of life</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-    <!-- FOOTER: say hello and social links -->
-    <footer class="foot" id="contact">
-      <h2>Say Hello!!</h2>
-      <p>Let's connect.</p>
-      <a class="mail" href="mailto:veeven.des12@gmail.com">veeven.des12@gmail.com</a>
-      <div class="foot-row">
-        <span>&copy; 2026 Vaishnavi Venkatesh</span>
-        <div>
-          <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a
-          ><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a
-          ><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-            >instagram</a
-          ><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
-            >linkedin</a
-          >
+  </header>
+
+  <!-- PAGE TITLE -->
+  <section class="page-hero">
+    <span class="label">Case study 06</span>
+
+    <h1>The Second Sight</h1>
+
+    <p class="whatif" style="color: inherit">
+      What if a single postcard could hold every visitor’s way of seeing it?
+    </p>
+
+    <div class="tags">
+      <span>AR</span>
+      <span>Installation</span>
+      <span>Interaction</span>
+    </div>
+  </section>
+
+  <!-- PROJECT DETAILS -->
+  <div class="meta">
+    <div>
+      <span class="label">Year</span>
+      <b>2024</b>
+    </div>
+
+    <div>
+      <span class="label">Type</span>
+      <b>Interactive AR installation</b>
+    </div>
+
+    <div>
+      <span class="label">Role</span>
+      <b>Concept, interaction, visual identity</b>
+    </div>
+
+    <div>
+      <span class="label">Tools</span>
+      <b>—</b>
+    </div>
+  </div>
+
+  <!-- MAIN PROJECT IMAGE -->
+  <div class="case-img hatch">
+    <img
+      src="../imagezz/second-sight.png"
+      alt="The Second Sight"
+      onerror="this.remove()"
+    />
+  </div>
+
+  <!-- CASE STUDY -->
+  <div class="case-layout">
+
+    <aside class="case-nav" aria-label="Sections">
+      <span class="label">Sections</span>
+
+      <ol>
+        <li><a href="#overview" class="on"><small>01</small>Overview</a></li>
+        <li><a href="#concept"><small>02</small>Concept</a></li>
+        <li><a href="#frames"><small>03</small>Frames</a></li>
+        <li><a href="#experience"><small>04</small>The experience</a></li>
+        <li><a href="#postcards"><small>05</small>Postcards</a></li>
+        <li><a href="#identity"><small>06</small>Visual identity</a></li>
+        <li><a href="#installation"><small>07</small>The installation</a></li>
+        <li><a href="#observations"><small>08</small>Observations</a></li>
+      </ol>
+    </aside>
+
+    <main class="case-main">
+
+      <!-- OVERVIEW -->
+      <section class="csec" id="overview">
+        <h2>Overview</h2>
+
+        <p>
+          Many Eyes is an interactive AR installation built around a single postcard. Visitors
+          scan the postcard, and a 3D model appears. They choose an option, scan framed images
+          around the space, and see content that matches their choice. They can then leave their
+          own perspective as text, a voice note, or a photo of something they have drawn or made.
+          Each response appears at a random position around the image and stays there permanently.
+          Every new visitor sees what came before and adds to it.
+        </p>
+
+        <figure class="ph">
+          <img
+            src="../imagezz/ss-overview.png"
+            alt="Overview of The Second Sight"
+            onerror="this.remove()"
+          />
+          <span class="lbl">Overview image</span>
+        </figure>
+      </section>
+
+      <!-- CONCEPT -->
+      <section class="csec" id="concept">
+        <h2>Concept</h2>
+
+        <p>
+          An image rarely has one meaning. A Buddha head held in tree roots can be read as nature
+          preserving a sacred object or as nature swallowing it. A protest can be read as courage
+          or as disruption. Many Eyes makes this difference visible. It treats each image as an
+          open question and collects the answers in the same space.
+        </p>
+
+        <p>
+          The postcard is a physical object anyone can pick up. The AR layer grows with every
+          visitor. The installation is never finished and its feed is made entirely of the people
+          who passed through.
+        </p>
+
+        <figure class="ph">
+          <img
+            src="../imagezz/ss-concept.png"
+            alt="The Second Sight concept"
+            onerror="this.remove()"
+          />
+          <span class="lbl">Concept image</span>
+        </figure>
+      </section>
+
+      <!-- FRAMES -->
+      <section class="csec" id="frames">
+        <h2>Frames</h2>
+
+        <ul class="frames">
+          <li>Personal</li>
+          <li>Ecological</li>
+          <li>Historical</li>
+          <li>Cultural</li>
+          <li>Future</li>
+        </ul>
+      </section>
+
+      <!-- THE EXPERIENCE -->
+      <section class="csec" id="experience">
+        <h2>The Experience</h2>
+
+        <div class="flow">
+          <div class="step r s1">Scan the postcard with the app.</div>
+          <div class="step r s2">A 3D model rises from the card.</div>
+          <div class="step d s3">Choose an option and tap OK.</div>
+          <div class="step d s4">Scan the frames around the space.</div>
+
+          <div class="step l s5">
+            Only the frame matching your option plays its image or video.
+          </div>
+
+          <div class="step l s6">
+            Record your perspective as text or a photo of a drawing.
+          </div>
+
+          <div class="step u s7">
+            Submit. Your response appears at a random spot around the frame.
+          </div>
+
+          <div class="step s8">
+            The next visitor sees yours and adds theirs.
+          </div>
         </div>
-      </div>
-    </footer>
-    <script src="../js/main.js"></script>
-  </body>
+      </section>
+
+      <!-- POSTCARDS -->
+      <section class="csec" id="postcards">
+        <h2>Postcards</h2>
+
+        <p>
+          <b>Interface</b><br />
+          Large buttons and a transparent layout keep the camera view visible. The flow has five
+          screens: scan postcard, choose option, scan frames, add perspective, thank you.
+        </p>
+
+        <div class="grid2">
+          <figure class="ph">
+            <img
+              src="../imagezz/ss-postcard-1.png"
+              alt="Postcard 1"
+              onerror="this.remove()"
+            />
+            <span class="lbl">Postcard 1</span>
+          </figure>
+
+          <figure class="ph">
+            <img
+              src="../imagezz/ss-postcard-2.png"
+              alt="Postcard 2"
+              onerror="this.remove()"
+            />
+            <span class="lbl">Postcard 2</span>
+          </figure>
+
+          <figure class="ph">
+            <img
+              src="../imagezz/ss-postcard-3.png"
+              alt="Postcard 3"
+              onerror="this.remove()"
+            />
+            <span class="lbl">Postcard 3</span>
+          </figure>
+
+          <figure class="ph">
+            <img
+              src="../imagezz/ss-postcard-4.png"
+              alt="Postcard 4"
+              onerror="this.remove()"
+            />
+            <span class="lbl">Postcard 4</span>
+          </figure>
+        </div>
+      </section>
+
+      <!-- VISUAL IDENTITY -->
+      <section class="csec" id="identity">
+        <h2>Visual Identity</h2>
+
+        <p>
+          <b>Interface</b><br />
+          Large buttons and a transparent layout keep the camera view visible. The flow has five
+          screens: scan postcard, choose option, scan frames, add perspective, thank you.
+        </p>
+
+        <div class="phones">
+          <figure class="ph">
+            <img
+              src="../imagezz/ss-screen-1.png"
+              alt="Start screen"
+              onerror="this.remove()"
+            />
+            <span class="lbl">Screen 1</span>
+          </figure>
+
+          <figure class="ph">
+            <img
+              src="../imagezz/ss-screen-2.png"
+              alt="Second app screen"
+              onerror="this.remove()"
+            />
+            <span class="lbl">Screen 2</span>
+          </figure>
+        </div>
+      </section>
+
+      <!-- THE INSTALLATION -->
+      <section class="csec" id="installation">
+        <h2>The Installation</h2>
+
+        <div class="install">
+          <figure class="ph">
+            <img
+              src="../imagezz/ss-install-1.png"
+              alt="Installation 1"
+              onerror="this.remove()"
+            />
+            <span class="lbl">Installation 1</span>
+          </figure>
+
+          <figure class="ph">
+            <img
+              src="../imagezz/ss-install-2.png"
+              alt="Installation 2"
+              onerror="this.remove()"
+            />
+            <span class="lbl">Installation 2</span>
+          </figure>
+        </div>
+      </section>
+
+      <!-- OBSERVATIONS -->
+      <section class="csec" id="observations">
+        <h2>Observations</h2>
+
+        <figure class="ph">
+          <img
+            src="../imagezz/ss-observations.png"
+            alt="Observations from The Second Sight"
+            onerror="this.remove()"
+          />
+          <span class="lbl">Observations image</span>
+        </figure>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- PREVIOUS / NEXT PROJECT -->
+  <nav class="pn" aria-label="Other projects">
+    <a href="project-5.html">
+      <small>← Previous</small>
+      Lushe
+    </a>
+
+    <a href="project-1.html">
+      <small>Next →</small>
+      Dhanushkodi — The Lost Land
+    </a>
+  </nav>
+
+  <!-- FOOTER -->
+  <footer class="foot" id="contact">
+    <span>&copy; 2026 Vaishnavi Venkatesh</span>
+
+    <div>
+      <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a>
+      <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">instagram</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">linkedin</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
 </html>

@@ -1,118 +1,571 @@
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Playground — Vaishnavi Venkatesh</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <script>
-      function fb(i) {
-        var l = (i.dataset.f || "").split("|").filter(Boolean);
-        if (l.length) {
-          i.src = l.shift();
-          i.dataset.f = l.join("|");
-        } else i.remove();
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Playground — Vaishnavi Venkatesh</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* =========================
+       GENERAL PAGE FIXES
+    ========================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+    }
+
+    body {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      margin: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+      overflow-x: clip;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .site-head {
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      gap: 24px;
+      padding: 20px 0;
+      margin: 0;
+
+      transform: none !important;
+      overflow: visible !important;
+      z-index: 100;
+    }
+
+    /* =========================
+       LOGO — NO CROPPING
+    ========================= */
+
+    .site-head .logo {
+      display: inline-flex;
+      flex: 0 1 220px;
+      align-items: center;
+      justify-content: flex-start;
+
+      width: 220px;
+      max-width: 42%;
+      min-width: 0;
+      height: auto;
+
+      margin: 0;
+      padding: 0;
+
+      overflow: visible !important;
+      background: transparent !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+
+      transform: none !important;
+      transform-origin: left center;
+      transition: transform 0.25s ease !important;
+    }
+
+    .site-head .logo img {
+      display: block;
+
+      width: 100%;
+      max-width: 100%;
+      height: auto !important;
+      max-height: none !important;
+
+      object-fit: contain !important;
+      object-position: left center;
+
+      margin: 0;
+      padding: 0;
+
+      overflow: visible !important;
+      background: transparent !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      clip-path: none !important;
+
+      transform: none !important;
+    }
+
+    /* Only enlarge the logo on hover */
+    .site-head .logo:hover,
+    .site-head .logo:focus-visible {
+      transform: scale(1.08) !important;
+    }
+
+    .site-head .logo:hover img,
+    .site-head .logo:focus-visible img {
+      transform: none !important;
+    }
+
+    /* =========================
+       NAVIGATION
+       Keeps every link visible
+       within the page width.
+    ========================= */
+
+    .site-head .site-nav {
+      display: block !important;
+      flex: 0 1 auto;
+
+      width: auto;
+      max-width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: 0;
+
+      position: relative !important;
+      right: auto !important;
+      left: auto !important;
+
+      overflow: visible !important;
+      transform: none !important;
+    }
+
+    .site-head .site-nav ul {
+      display: flex !important;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      gap: 6px;
+
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      text-align: left;
+    }
+
+    .site-head .site-nav li {
+      display: block !important;
+      width: auto;
+      max-width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-head .site-nav a {
+      display: inline-block;
+
+      max-width: 100%;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: normal;
+
+      margin: 0;
+      padding: 2px 0;
+
+      text-align: left;
+    }
+
+    .site-head .site-nav a.on {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* =========================
+       PAGE HERO
+    ========================= */
+
+    .page-hero {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: clamp(48px, 10vw, 120px) 0 clamp(36px, 7vw, 80px);
+
+      overflow-wrap: anywhere;
+    }
+
+    .page-hero h1 {
+      max-width: 100%;
+      margin-top: 14px;
+      margin-bottom: 20px;
+
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      line-height: 0.95;
+    }
+
+    .page-hero p {
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       PLAYGROUND GRID
+    ========================= */
+
+    .play-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+
+      width: 100%;
+      max-width: 1200px;
+      min-width: 0;
+
+      margin: 0 auto;
+      padding: 0 0 80px;
+    }
+
+    .play {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      gap: 40px;
+
+      width: 100%;
+      min-width: 0;
+      min-height: 260px;
+
+      padding: clamp(20px, 3vw, 36px);
+
+      overflow-wrap: anywhere;
+    }
+
+    .play .label {
+      display: block;
+      max-width: 100%;
+    }
+
+    .play h3 {
+      margin-bottom: 10px;
+      overflow-wrap: anywhere;
+    }
+
+    .play p {
+      max-width: 48ch;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .foot {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: 50px 0 24px;
+
+      overflow-wrap: anywhere;
+    }
+
+    .foot h2,
+    .foot p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .foot .mail {
+      display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    .foot-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
+      margin-top: 30px;
+    }
+
+    .foot-row > div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .foot-row a {
+      overflow-wrap: anywhere;
+    }
+
+    /* =========================
+       TABLET AND MOBILE
+    ========================= */
+
+    @media (max-width: 760px) {
+      body {
+        padding-left: 16px;
+        padding-right: 16px;
       }
-    </script>
-  </head>
-  <body>
-    <div class="cursor"></div>
-    <!-- HEADER: logo (links home) and navigation -->
-    <header class="site-head">
-      <a class="logo" href="home.html" aria-label="Home"
-        ><img
-          src="assets/logo.png"
-          alt="Home"
-          onerror="
-            this.onerror = null;
-            this.src = 'assets/logo.svg';
-          "
-      /></a>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="playground.html" class="on">Playground</a></li>
-          <li><a href="slice.html">Slice of life</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- PAGE TITLE -->
-    <section class="page-hero">
-      <span class="label">Playground</span>
-      <h1>Made for<br />fun.</h1>
-      <p>Experiments, sketches and unfinished ideas that sit outside the case studies.</p>
-    </section>
-    <!-- EXPERIMENTS GRID -->
-    <section class="play-grid">
-      <div class="play reveal">
-        <span class="label">Experiment 01 · Motion</span>
-        <div>
-          <h3>Add a title</h3>
-          <p>Add a short note about this experiment.</p>
-        </div>
+
+      .site-head {
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .site-head .logo {
+        flex-basis: 160px;
+        width: 160px;
+        max-width: 48%;
+      }
+
+      .site-head .site-nav {
+        flex: 0 1 150px;
+      }
+
+      .site-head .site-nav ul {
+        gap: 5px;
+      }
+
+      .site-head .site-nav a {
+        font-size: 0.9rem;
+      }
+
+      .play-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+      }
+
+      .play {
+        min-height: 220px;
+        gap: 32px;
+      }
+
+      .foot-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .site-head {
+        gap: 10px;
+      }
+
+      .site-head .logo {
+        flex-basis: 125px;
+        width: 125px;
+      }
+
+      .site-head .site-nav {
+        flex-basis: 125px;
+      }
+
+      .site-head .site-nav a {
+        font-size: 0.82rem;
+      }
+    }
+
+    /* Respect reduced-motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .site-head .logo {
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <script>
+    function fb(i) {
+      var l = (i.dataset.f || "").split("|").filter(Boolean);
+
+      if (l.length) {
+        i.src = l.shift();
+        i.dataset.f = l.join("|");
+      } else {
+        i.remove();
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="cursor"></div>
+
+  <!-- HEADER -->
+  <header class="site-head">
+    <a class="logo" href="home.html" aria-label="Home">
+      <img
+        src="imagezz/vvc%20logo.png"
+        alt="Vaishnavi Venkatesh"
+        onerror="this.onerror=null; this.src='portfolio/imagezz/vvc%20logo.png';"
+      />
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="playground.html" class="on">Playground</a></li>
+        <li><a href="slice.html">Slice of life</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PAGE TITLE -->
+  <section class="page-hero">
+    <span class="label">Playground</span>
+
+    <h1>Made for<br />fun.</h1>
+
+    <p>
+      Experiments, sketches and unfinished ideas that sit outside the case studies.
+    </p>
+  </section>
+
+  <!-- EXPERIMENTS GRID -->
+  <section class="play-grid">
+    <div class="play reveal">
+      <span class="label">Experiment 01 · Motion</span>
+      <div>
+        <h3>Add a title</h3>
+        <p>Add a short note about this experiment.</p>
       </div>
-      <div class="play reveal">
-        <span class="label">Experiment 02 · Type</span>
-        <div>
-          <h3>Add a title</h3>
-          <p>Add a short note about this experiment.</p>
-        </div>
+    </div>
+
+    <div class="play reveal">
+      <span class="label">Experiment 02 · Type</span>
+      <div>
+        <h3>Add a title</h3>
+        <p>Add a short note about this experiment.</p>
       </div>
-      <div class="play reveal">
-        <span class="label">Experiment 03 · Sketch</span>
-        <div>
-          <h3>Add a title</h3>
-          <p>Add a short note about this experiment.</p>
-        </div>
+    </div>
+
+    <div class="play reveal">
+      <span class="label">Experiment 03 · Sketch</span>
+      <div>
+        <h3>Add a title</h3>
+        <p>Add a short note about this experiment.</p>
       </div>
-      <div class="play reveal">
-        <span class="label">Experiment 04 · Code</span>
-        <div>
-          <h3>Add a title</h3>
-          <p>Add a short note about this experiment.</p>
-        </div>
+    </div>
+
+    <div class="play reveal">
+      <span class="label">Experiment 04 · Code</span>
+      <div>
+        <h3>Add a title</h3>
+        <p>Add a short note about this experiment.</p>
       </div>
-      <div class="play reveal">
-        <span class="label">Experiment 05 · Sound</span>
-        <div>
-          <h3>Add a title</h3>
-          <p>Add a short note about this experiment.</p>
-        </div>
+    </div>
+
+    <div class="play reveal">
+      <span class="label">Experiment 05 · Sound</span>
+      <div>
+        <h3>Add a title</h3>
+        <p>Add a short note about this experiment.</p>
       </div>
-      <div class="play reveal">
-        <span class="label">Experiment 06 · Print</span>
-        <div>
-          <h3>Add a title</h3>
-          <p>Add a short note about this experiment.</p>
-        </div>
+    </div>
+
+    <div class="play reveal">
+      <span class="label">Experiment 06 · Print</span>
+      <div>
+        <h3>Add a title</h3>
+        <p>Add a short note about this experiment.</p>
       </div>
-    </section>
-    <!-- FOOTER: say hello and social links -->
-    <footer class="foot" id="contact">
-      <h2>Say Hello!!</h2>
-      <p>Let's connect.</p>
-      <a class="mail" href="mailto:veeven.des12@gmail.com">veeven.des12@gmail.com</a>
-      <div class="foot-row">
-        <span>&copy; 2026 Vaishnavi Venkatesh</span>
-        <div>
-          <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a
-          ><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a
-          ><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-            >instagram</a
-          ><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
-            >linkedin</a
-          >
-        </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot" id="contact">
+    <h2>Say Hello!!</h2>
+    <p>Let's connect.</p>
+
+    <a class="mail" href="mailto:veeven.des12@gmail.com">
+      veeven.des12@gmail.com
+    </a>
+
+    <div class="foot-row">
+      <span>&copy; 2026 Vaishnavi Venkatesh</span>
+
+      <div>
+        <a
+          href="https://github.com/blueexev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >github</a>
+
+        <a
+          href="https://www.behance.net/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >behance</a>
+
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >instagram</a>
+
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >linkedin</a>
       </div>
-    </footer>
-    <script src="js/main.js"></script>
-  </body>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
 </html>

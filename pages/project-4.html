@@ -1,9 +1,11 @@
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ITI — Case study</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,20 +13,374 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/style.css" />
+
+    <style>
+      /* =========================================================
+         IMAGE SIZE AND POSITION CONTROLS
+         Change these values to adjust image sizes across the page.
+         ========================================================= */
+
+      :root {
+        --iti-image-width: 90%;
+        --iti-image-height: 100%;
+        --iti-image-gap: 20px;
+
+        --iti-context-width: 85%;
+        --iti-game-width: 90%;
+        --iti-inspiration-width: 85%;
+        --iti-packaging-width: 90%;
+        --iti-final-width: 90%;
+
+        --iti-item-width: 88%;
+        --iti-visual-width: 85%;
+      }
+
+      /* Basic text styling */
+      .quote {
+        margin: 0 0 8px;
+        font-size: 1.15em;
+        line-height: 1.5;
+      }
+
+      .sub {
+        margin: 32px 0 8px;
+        font: inherit;
+        font-weight: bold;
+      }
+
+      /* =========================================================
+         IMAGE CONTAINERS
+         Images remain fully visible instead of being cropped.
+         ========================================================= */
+
+      .shot {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+
+      .shot img {
+        position: relative;
+        inset: auto;
+        display: block;
+        width: var(--iti-image-width);
+        max-width: 100%;
+        height: var(--iti-image-height);
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center;
+        margin: 0 auto;
+        flex: 0 1 auto;
+      }
+
+      /* Wide image containers */
+      .shot-wide {
+        aspect-ratio: 16 / 9;
+        margin-top: var(--iti-image-gap);
+      }
+
+      .shot-banner {
+        aspect-ratio: 21 / 9;
+        margin-top: var(--iti-image-gap);
+      }
+
+      /* Individual image sizes */
+      #context .shot img {
+        width: var(--iti-context-width);
+      }
+
+      #game .shot img {
+        width: var(--iti-game-width);
+      }
+
+      #inspiration .shot img {
+        width: var(--iti-inspiration-width);
+      }
+
+      #packaging .shot img {
+        width: var(--iti-packaging-width);
+      }
+
+      #final .shot img {
+        width: var(--iti-final-width);
+      }
+
+      /* =========================================================
+         IMAGE GRIDS
+         ========================================================= */
+
+      .items {
+        display: grid;
+        gap: 28px 24px;
+        margin-top: 20px;
+      }
+
+      .items.c2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .items.c3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .items.c4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .item {
+        min-width: 0;
+      }
+
+      .item .ph {
+        aspect-ratio: 4 / 3;
+        margin-bottom: 12px;
+      }
+
+      .items.sq .item .ph {
+        aspect-ratio: 1 / 1;
+      }
+
+      .item .ph img {
+        width: var(--iti-item-width);
+        height: 90%;
+        object-fit: contain;
+      }
+
+      .items.c4 .item .ph img {
+        width: var(--iti-visual-width);
+      }
+
+      .item p {
+        margin: 0;
+      }
+
+      /* =========================================================
+         INDIVIDUAL POSITION ADJUSTMENTS
+         Uncomment and edit any rule to move a particular image.
+         Positive X = right; negative X = left.
+         Positive Y = down; negative Y = up.
+         ========================================================= */
+
+      /*
+      #game .shot img {
+        transform: translate(10px, 0);
+      }
+
+      #kit .item:nth-child(2) .ph img {
+        transform: translate(0, -8px);
+      }
+
+      #visual .item:nth-child(3) .ph img {
+        transform: translate(8px, 0);
+      }
+      */
+
+      /* =========================================================
+         PAGE-WIDE TYPOGRAPHY: 20% SMALLER
+         ========================================================= */
+
+      body {
+        font-size: 7.68px;
+      }
+
+      .label {
+        font-size: 6.24px;
+      }
+
+      .site-nav a {
+        font-size: 9.12px;
+      }
+
+      .whatif {
+        font-size: clamp(9.6px, 1.25vw, 17.28px);
+      }
+
+      .meta b {
+        font-size: 8.64px;
+      }
+
+      .ph {
+        font-size: 6.72px;
+      }
+
+      .pn a {
+        font-size: clamp(10.56px, 1.54vw, 21.12px);
+      }
+
+      .pn small {
+        font-size: 6.24px;
+      }
+
+      .foot h2 {
+        font-size: clamp(22.08px, 4.32vw, 67.2px);
+      }
+
+      .foot p {
+        font-size: clamp(9.6px, 1.25vw, 16.32px);
+      }
+
+      .foot .mail {
+        font-size: clamp(7.68px, 0.96vw, 12.48px);
+      }
+
+      .foot-row {
+        font-size: 8.16px;
+      }
+
+      .case-nav a {
+        font-size: 11.2px;
+      }
+
+      .case-nav small {
+        font-size: 8.8px;
+      }
+
+      .csec h2 {
+        font-size: clamp(22.4px, 3.36vw, 48px);
+      }
+
+      .csec p {
+        font-size: clamp(10.4px, 1.2vw, 16px);
+      }
+
+      .tags span {
+        font-size: 8px;
+      }
+
+      .page-hero .tags span {
+        font-size: 8.8px;
+      }
+
+      /* =========================================================
+         REDUCED EMPTY SPACE
+         ========================================================= */
+
+      .page-hero {
+        padding: 130px var(--pad) 30px;
+      }
+
+      .meta {
+        padding-bottom: 30px;
+      }
+
+      .case-layout {
+        padding-top: 40px;
+      }
+
+      .csec {
+        padding-bottom: 56px;
+      }
+
+      .csec h2 {
+        margin-bottom: 14px;
+      }
+
+      .csec p,
+      .page-hero p {
+        max-width: none;
+      }
+
+      .csec p {
+        margin: 0;
+      }
+
+      .csec p + p {
+        margin-top: 0.9em;
+      }
+
+      .csec p.quote {
+        font-size: 1.15em;
+        margin: 0 0 18px;
+      }
+
+      .csec .ph {
+        margin-top: 20px;
+      }
+
+      .pn {
+        margin-top: 60px;
+      }
+
+      .pn a {
+        padding: 32px var(--pad);
+      }
+
+      .foot {
+        padding: 56px var(--pad) 28px;
+      }
+
+      /* Wider screens */
+      @media (min-width: 901px) {
+        .case-layout {
+          grid-template-columns: 180px minmax(0, 1fr);
+          gap: 40px;
+        }
+      }
+
+      /* Tablet layout */
+      @media (max-width: 900px) {
+        .case-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .items.c4 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      /* Mobile layout */
+      @media (max-width: 520px) {
+        .items.c2,
+        .items.c3,
+        .items.c4 {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .shot-wide {
+          aspect-ratio: 4 / 3;
+        }
+
+        .shot-banner {
+          aspect-ratio: 4 / 3;
+        }
+
+        .shot img,
+        #context .shot img,
+        #game .shot img,
+        #inspiration .shot img,
+        #packaging .shot img,
+        #final .shot img,
+        .item .ph img {
+          width: 90%;
+          height: 90%;
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+
+        .page-hero {
+          padding-top: 100px;
+        }
+      }
+    </style>
   </head>
+
   <body>
     <div class="cursor"></div>
-    <!-- HEADER: logo (links home) and navigation -->
+
+    <!-- HEADER -->
     <header class="site-head">
-      <a class="logo" href="../home.html" aria-label="Home"
-        ><img
-          src="../assets/logo.png"
+      <a class="logo" href="../home.html" aria-label="Home">
+        <img
+          src="../imagezz/vvc%20logo.png"
           alt="Home"
-          onerror="
-            this.onerror = null;
-            this.src = '../assets/logo.svg';
-          "
-      /></a>
+          onerror="this.onerror=null;this.src='../assets/logo.svg';"
+        />
+      </a>
+
       <nav class="site-nav">
         <ul>
           <li><a href="../work.html" class="on">Work</a></li>
@@ -35,108 +391,465 @@
         </ul>
       </nav>
     </header>
+
     <!-- PAGE TITLE -->
     <section class="page-hero">
       <span class="label">Case study 04</span>
-      <h1 style="font-size: clamp(25.2px, 5.1vw, 84px)">ITI</h1>
+      <h1 style="font-size: clamp(20.16px, 4.08vw, 67.2px)">ITI</h1>
+
       <p class="whatif" style="color: inherit">
         What if the puppet you built yourself came alive on screen to tell an Indian folk story?
       </p>
-      <div class="tags"><span>AR</span><span>Storytelling</span><span>Folk Art</span></div>
+
+      <div class="tags">
+        <span>AR</span>
+        <span>Storytelling</span>
+        <span>Folk Art</span>
+      </div>
     </section>
+
     <!-- PROJECT DETAILS -->
     <div class="meta">
-      <div><span class="label">Year</span><b>2025</b></div>
-      <div><span class="label">Type</span><b>AR / Game</b></div>
-      <div><span class="label">Role</span><b>Storytelling, visual</b></div>
-      <div><span class="label">Tools</span><b>Illustrator / Unity</b></div>
+      <div>
+        <span class="label">Year</span>
+        <b>2025</b>
+      </div>
+      <div>
+        <span class="label">Type</span>
+        <b>AR / Game</b>
+      </div>
+      <div>
+        <span class="label">Role</span>
+        <b>Storytelling, visual</b>
+      </div>
+      <div>
+        <span class="label">Tools</span>
+        <b>Illustrator / Unity</b>
+      </div>
     </div>
+
     <!-- MAIN PROJECT IMAGE -->
     <div class="case-img hatch">
-      <img src="../imagezz/ITI%20Game.png" alt="ITI" onerror="this.remove()" />
+      <img
+        src="../imagezz/itiheroimage.jpg"
+        alt="ITI"
+        onerror="this.remove()"
+      />
     </div>
-    <!-- CASE STUDY: section list on the left, content on the right -->
+
+    <!-- CASE STUDY CONTENT -->
     <div class="case-layout">
       <aside class="case-nav" aria-label="Sections">
         <span class="label">Sections</span>
+
         <ol>
-          <li>
-            <a href="#overview" class="on"><small>01</small>Overview</a>
-          </li>
-          <li>
-            <a href="#context"><small>02</small>Context</a>
-          </li>
-          <li>
-            <a href="#concept"><small>03</small>Concept</a>
-          </li>
-          <li>
-            <a href="#execution"><small>04</small>Execution</a>
-          </li>
-          <li>
-            <a href="#significance"><small>05</small>Significance</a>
-          </li>
+          <li><a href="#context" class="on"><small>01</small>Context</a></li>
+          <li><a href="#problem"><small>02</small>The problem</a></li>
+          <li><a href="#game"><small>03</small>The game</a></li>
+          <li><a href="#inspiration"><small>04</small>Inspiration</a></li>
+          <li><a href="#gameplay"><small>05</small>Gameplay</a></li>
+          <li><a href="#kit"><small>06</small>The kit</a></li>
+          <li><a href="#interactive"><small>07</small>Interactive</a></li>
+          <li><a href="#packaging"><small>08</small>Packaging</a></li>
+          <li><a href="#visual"><small>09</small>Visual language</a></li>
+          <li><a href="#final"><small>10</small>Final experience</a></li>
+          <li><a href="#learnings"><small>11</small>Learnings</a></li>
         </ol>
       </aside>
+
       <div class="case-main">
-        <!-- CASE STUDY SECTION: overview -->
-        <section class="csec" id="overview">
-          <h2>Overview</h2>
-          <p>
-            A DIY puppet theatre kit that brings Indian folk stories to children through making,
-            performing and AR. Building the puppet is part of the story.
-          </p>
-        </section>
-        <!-- CASE STUDY SECTION: context -->
+
+        <!-- CONTEXT -->
         <section class="csec" id="context">
-          <h2>Context</h2>
-          <p class="mute">
-            Add the background: where this started, who it is for and what was missing.
+          <p class="quote">
+            “How might we turn Indian folktales into an interactive experience where children don’t
+            just hear the story they build, shape and perform it?”
           </p>
-          <div class="ph">Context image</div>
+
+          <h2>Context</h2>
+
+          <p>
+            Inspired by India’s deep-rooted storytelling traditions, ranging from folk theatre and
+            puppetry to oral narratives passed down through generations, I created Iti as a way
+            to help children reconnect with this rich cultural heritage in a contemporary format.
+          </p>
+
+          <p>
+            India is known for its diverse traditional art forms like puppetry, folklore, and
+            regional storytelling practices, but many of these are slowly fading in today’s digital
+            age.
+          </p>
+
+          <div class="ph shot shot-banner">
+            <img
+              src="../imagezz/iti-context.png"
+              alt="Context"
+              onerror="this.remove()"
+            />
+          </div>
         </section>
-        <!-- CASE STUDY SECTION: concept -->
-        <section class="csec" id="concept">
-          <h2>Concept</h2>
-          <p class="mute">Add the big idea and the thinking behind it.</p>
-          <div class="ph">Concept image</div>
+
+        <!-- THE PROBLEM -->
+        <section class="csec" id="problem">
+          <h2>The Problem</h2>
+
+          <p>
+            Children often experience stories by simply listening or watching. I wanted to explore
+            how storytelling could become something they build, touch, change and perform
+            themselves.
+          </p>
         </section>
-        <!-- CASE STUDY SECTION: execution -->
-        <section class="csec" id="execution">
-          <h2>Execution</h2>
-          <p class="mute">Add how you made it: process, tools, prototypes and what you tested.</p>
-          <div class="ph">Execution image</div>
+
+        <!-- THE GAME -->
+        <section class="csec" id="game">
+          <h2>The Game</h2>
+
+          <p>
+            Iti is an interactive storytelling game and DIY theatre kit designed to help children
+            rediscover India’s cultural roots through folktales and performance. Blending craft,
+            play and technology, Iti encourages young minds to create, imagine and connect with
+            traditional stories in a modern way.
+          </p>
+
+          <p>
+            Each child becomes both a creator and performer, building their own miniature puppet
+            theatre, crafting characters, exploring them in 3D through AR and finally bringing the
+            tale to life through a dramatic act. An added AR layer allows them to bring their
+            handmade puppets to life in 3D, blending traditional storytelling with digital wonder.
+          </p>
+
+          <div class="ph shot shot-wide">
+            <img
+              src="../imagezz/iti%20game1.png"
+              alt="The game"
+              onerror="this.remove()"
+            />
+          </div>
         </section>
-        <!-- CASE STUDY SECTION: significance -->
-        <section class="csec" id="significance">
-          <h2>Significance</h2>
-          <p class="mute">Add why it matters: the impact, the feedback and what you learned.</p>
-          <div class="ph">Significance image</div>
+
+        <!-- INSPIRATION -->
+        <section class="csec" id="inspiration">
+          <h2>Inspiration</h2>
+
+          <p>
+            Drawing from traditional Indian puppet theatre, especially forms like shadow puppetry
+            and string puppetry, the mood is rooted in drama, folklore and handcrafted aesthetics.
+            The stage compositions, rich textiles and ornamental frames reflect the essence of live
+            folk performances, where storytelling unfolds through movement, light and silhouette.
+          </p>
+
+          <div class="ph shot shot-banner">
+            <img
+              src="../imagezz/iti%20inspiration.png"
+              alt="Inspiration"
+              onerror="this.remove()"
+            />
+          </div>
         </section>
+
+        <!-- GAMEPLAY -->
+        <section class="csec" id="gameplay">
+          <h2>Experience of the gameplay</h2>
+
+          <div class="items c2 sq">
+            <div class="item">
+              <div class="ph shot">
+                <img src="../imagezz/iti-make.png" alt="Make" onerror="this.remove()" />
+              </div>
+              <p>
+                <b>Make:</b> Children build their personal mini theatre using pre-cut materials
+                from the kit.
+              </p>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img src="../imagezz/iti-create.png" alt="Create" onerror="this.remove()" />
+              </div>
+              <p>
+                <b>Create:</b> They design and decorate character puppets inspired by folktales.
+              </p>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img src="../imagezz/iti-perform.png" alt="Perform" onerror="this.remove()" />
+              </div>
+              <p>
+                <b>Perform:</b> Enact the story as a full theatre act, learning moral lessons,
+                emotions and cultural nuances through play.
+              </p>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img src="../imagezz/iti-discover.png" alt="Discover" onerror="this.remove()" />
+              </div>
+              <p>
+                <b>Discover:</b> Using AR, they scan activation cards to explore their characters
+                coming to life.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- THE KIT -->
+        <section class="csec" id="kit">
+          <h2>What is inside the kit?</h2>
+
+          <div class="items c3">
+            <div class="item">
+              <div class="ph shot">
+                <img
+                  src="../imagezz/ititheatrekit.png"
+                  alt="DIY Theatre Kit"
+                  onerror="this.remove()"
+                />
+              </div>
+              <p>
+                <b>DIY Theatre Kit:</b> Pre-cut materials and assembly guides to build a personal
+                mini stage.
+              </p>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img
+                  src="../imagezz/iticharactertemplate.png"
+                  alt="Character Templates"
+                  onerror="this.remove()"
+                />
+              </div>
+              <p>
+                <b>Character Templates:</b> Blank puppets and cutouts to design, decorate and
+                personalize.
+              </p>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img
+                  src="../imagezz/itiinsightcards.png"
+                  alt="Cultural Insight Cards"
+                  onerror="this.remove()"
+                />
+              </div>
+              <p>
+                <b>Cultural Insight Cards:</b> Fun facts and short learning prompts about regions
+                and folklore origins.
+              </p>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img
+                  src="../imagezz/itiflashcards.png"
+                  alt="Story Flashcards"
+                  onerror="this.remove()"
+                />
+              </div>
+              <p>
+                <b>Story Flashcards:</b> Traditional Indian folktales broken down into acts and
+                dialogues.
+              </p>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img
+                  src="../imagezz/itiinstructionbooklet.png"
+                  alt="Instruction Booklet"
+                  onerror="this.remove()"
+                />
+              </div>
+              <p>
+                <b>Instruction Booklet:</b> Step-by-step guide for setup and performance.
+              </p>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img
+                  src="../imagezz/itiaractivationcards.png"
+                  alt="AR Activation Cards"
+                  onerror="this.remove()"
+                />
+              </div>
+              <p>
+                <b>AR Activation Cards:</b> Scan to view your characters come alive in 3D through
+                an AR feature.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- INTERACTIVE STORYTELLING -->
+        <section class="csec" id="interactive">
+          <h2>Making storytelling interactive</h2>
+
+          <p>
+            Instead of giving children one fixed way to tell the story, Iti gives them pieces to
+            experiment with. They can choose characters, arrange the stage, use dialogue cards and
+            perform the story in their own way.
+          </p>
+
+          <p>
+            The AR layer adds another dimension to physical play. Children can scan elements of the
+            kit to discover additional parts of the story, making the physical theatre feel like
+            it has another hidden layer.
+          </p>
+
+          <p>
+            Iti turns storytelling into a shared act of making and performing. Children build
+            something together, give characters a voice and become part of the story instead of
+            simply watching it.
+          </p>
+        </section>
+
+        <!-- PACKAGING -->
+        <section class="csec" id="packaging">
+          <h2>Packaging Design</h2>
+
+          <div class="ph shot shot-wide">
+            <img
+              src="../imagezz/iti%20packaging.png"
+              alt="Packaging design"
+              onerror="this.remove()"
+            />
+          </div>
+        </section>
+
+        <!-- VISUAL LANGUAGE -->
+        <section class="csec" id="visual">
+          <h2>Visual Language</h2>
+
+          <div class="items c4 sq">
+            <div class="item">
+              <div class="ph shot">
+                <img src="../imagezz/visual-1.png" alt="Visual language 1" onerror="this.remove()" />
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img src="../imagezz/visual-2.png" alt="Visual language 2" onerror="this.remove()" />
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img src="../imagezz/visual-3.png" alt="Visual language 3" onerror="this.remove()" />
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img src="../imagezz/visual-4.png" alt="Visual language 4" onerror="this.remove()" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FINAL EXPERIENCE -->
+        <section class="csec" id="final">
+          <h2>Final experience</h2>
+
+          <div class="ph shot shot-wide">
+            <img
+              src="../imagezz/iti-final.png"
+              alt="Final experience"
+              onerror="this.remove()"
+            />
+          </div>
+        </section>
+
+        <!-- LEARNINGS -->
+        <section class="csec" id="learnings">
+          <h2>Learnings from the game</h2>
+
+          <div class="items c2">
+            <div class="item">
+              <div class="ph shot">
+                <img
+                  src="../imagezz/iticommunication.png"
+                  alt="Cultural learning"
+                  onerror="this.remove()"
+                />
+              </div>
+              <p>
+                <b>Cultural Learning</b> – discover Indian stories, characters and traditions.
+              </p>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img
+                  src="../imagezz/iticandi.png"
+                  alt="Creativity and imagination"
+                  onerror="this.remove()"
+                />
+              </div>
+              <p>
+                <b>Creativity &amp; Imagination</b> – create their own stories and characters.
+              </p>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img
+                  src="../imagezz/ititeamwork.png"
+                  alt="Teamwork"
+                  onerror="this.remove()"
+                />
+              </div>
+              <p>
+                <b>Teamwork</b> – build and play together.
+              </p>
+            </div>
+
+            <div class="item">
+              <div class="ph shot">
+                <img
+                  src="../imagezz/itil.png"
+                  alt="Communication"
+                  onerror="this.remove()"
+                />
+              </div>
+              <p>
+                <b>Communication</b> – express ideas through dialogue and performance.
+              </p>
+            </div>
+          </div>
+        </section>
+
       </div>
     </div>
+
     <!-- PREVIOUS / NEXT PROJECT -->
     <nav class="pn">
-      <a href="project-3.html"><small>← Previous</small>Air &amp; Birds</a
-      ><a href="project-5.html"><small>Next →</small>The Temple That Speaks</a>
+      <a href="project-3.html">
+        <small>← Previous</small>
+        Fragile Flights
+      </a>
+
+      <a href="project-5.html">
+        <small>Next →</small>
+        The second sight
+      </a>
     </nav>
-    <!-- FOOTER: say hello and social links -->
+
+    <!-- FOOTER -->
     <footer class="foot" id="contact">
-      <h2>Say Hello!!</h2>
-      <p>Let's connect.</p>
-      <a class="mail" href="mailto:veeven.des12@gmail.com">veeven.des12@gmail.com</a>
-      <div class="foot-row">
-        <span>&copy; 2026 Vaishnavi Venkatesh</span>
-        <div>
-          <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a
-          ><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a
-          ><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-            >instagram</a
-          ><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
-            >linkedin</a
-          >
-        </div>
+      <span>&copy; 2026 Vaishnavi Venkatesh</span>
+
+      <div>
+        <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a>
+        <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">instagram</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">linkedin</a>
       </div>
     </footer>
+
     <script src="../js/main.js"></script>
   </body>
 </html>

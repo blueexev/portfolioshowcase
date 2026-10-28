@@ -1,253 +1,728 @@
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Work — Vaishnavi Venkatesh</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <script>
-      function fb(i) {
-        var l = (i.dataset.f || "").split("|").filter(Boolean);
-        if (l.length) {
-          i.src = l.shift();
-          i.dataset.f = l.join("|");
-        } else i.remove();
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Vaishnavi Venkatesh</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ===== GLOBAL LAYOUT ===== */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    /* ===== HEADER: LOGO LEFT, VERTICAL NAV RIGHT ===== */
+    .site-head {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      width: 100%;
+      padding: 28px 5%;
+      overflow: visible;
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      z-index: 100;
+    }
+
+    .site-head .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: fit-content;
+      height: auto;
+      padding: 0;
+      margin: 0;
+      overflow: visible;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      transition: transform 0.3s ease;
+      transform-origin: top left;
+    }
+
+    .site-head .logo img {
+      display: block;
+      width: 135px;
+      max-width: none;
+      height: auto !important;
+      max-height: none !important;
+      object-fit: contain !important;
+      object-position: center;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      clip-path: none !important;
+      transition: transform 0.3s ease;
+      transform-origin: top left;
+    }
+
+    /* Enlarge the logo when the cursor hovers over it */
+    .site-head .logo:hover img,
+    .site-head .logo:focus-visible img {
+      transform: scale(1.22);
+    }
+
+    /* Vertical navigation in the top-right corner */
+    .site-head .site-nav {
+      display: block;
+      margin-left: auto;
+      padding: 0;
+      text-align: right;
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+
+    .site-head .site-nav ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+      gap: 9px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .site-head .site-nav li {
+      display: block;
+      padding: 0;
+      margin: 0;
+      border: none !important;
+      background: transparent !important;
+    }
+
+    .site-head .site-nav a {
+      display: inline-block;
+      padding: 2px 0;
+      text-decoration: none;
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .site-head .site-nav a:hover,
+    .site-head .site-nav a:focus-visible {
+      opacity: 0.65;
+      transform: translateX(-3px);
+    }
+
+    /* ===== PAGE TITLE ===== */
+    .page-hero {
+      padding: 45px 5% 25px;
+      margin: 0;
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+
+    .page-hero h1 {
+      margin: 0;
+      line-height: 0.98;
+    }
+
+    /* ===== THREE-COLUMN PROJECT GRID ===== */
+    .work {
+      padding: 20px 5% 70px;
+      margin: 0;
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+
+    .work .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+      gap: 48px 30px;
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    /* Remove borders, outlines, patterns and overlays */
+    .work .tile,
+    .work .pic,
+    .work .pic.hatch,
+    .work .pic.has-b {
+      min-width: 0;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      background-image: none !important;
+      clip-path: none !important;
+    }
+
+    .work .tile {
+      display: block;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+      overflow: visible;
+    }
+
+    /* Smaller image area with natural image proportions */
+    .work .pic {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      aspect-ratio: auto !important;
+      overflow: visible !important;
+      padding: 0;
+      margin: 0 auto 15px;
+    }
+
+    .work .pic::before,
+    .work .pic::after,
+    .work .pic.hatch::before,
+    .work .pic.hatch::after,
+    .work .pic.has-b::before,
+    .work .pic.has-b::after,
+    .work .tile::before,
+    .work .tile::after {
+      content: none !important;
+      display: none !important;
+      border: none !important;
+      outline: none !important;
+      background: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Main images: no cropping, borders or opacity overlays */
+    .work .pic img {
+      display: block;
+      position: relative;
+      width: 88%;
+      max-width: 88%;
+      height: auto !important;
+      max-height: none !important;
+      object-fit: contain !important;
+      object-position: center;
+      margin: 0 auto;
+      padding: 0;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      clip-path: none !important;
+      transform: none;
+    }
+
+    .work .pic img.a {
+      z-index: 1;
+      opacity: 1 !important;
+    }
+
+    /* Hover image sits over the main image without cropping */
+    .work .pic img.b {
+      position: absolute;
+      top: 0;
+      left: 6%;
+      width: 88%;
+      max-width: 88%;
+      height: 100% !important;
+      object-fit: contain !important;
+      object-position: center;
+      margin: 0;
+      z-index: 2;
+      opacity: 0 !important;
+      pointer-events: none;
+    }
+
+    .work .tile:hover .pic img.a,
+    .work .tile:focus-visible .pic img.a {
+      opacity: 0 !important;
+    }
+
+    .work .tile:hover .pic img.b,
+    .work .tile:focus-visible .pic img.b {
+      opacity: 1 !important;
+    }
+
+    /* ===== PROJECT TEXT ===== */
+    .work .cap {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 0 0 9px;
+      padding: 0;
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+
+    .work .cap span {
+      line-height: 1.3;
+    }
+
+    .work .cap small {
+      flex-shrink: 0;
+    }
+
+    .work .pitch {
+      margin: 0 0 12px;
+      line-height: 1.5;
+    }
+
+    .work .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      margin: 0 0 12px;
+      padding: 0;
+    }
+
+    .work .tags span {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+
+    .work .viewlink {
+      display: inline-block;
+      margin-top: 2px;
+    }
+
+    /* ===== FOOTER ===== */
+    .foot {
+      padding: 35px 5%;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* ===== TABLET ===== */
+    @media (max-width: 950px) {
+      .work .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 38px 24px;
       }
-    </script>
-  </head>
-  <body>
-    <div class="cursor"></div>
-    <!-- HEADER: logo (links home) and navigation -->
-    <header class="site-head">
-      <a class="logo" href="home.html" aria-label="Home"
-        ><img
-          src="assets/logo.png"
-          alt="Home"
-          onerror="
-            this.onerror = null;
-            this.src = 'assets/logo.svg';
-          "
-      /></a>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="work.html" class="on">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="playground.html">Playground</a></li>
-          <li><a href="slice.html">Slice of life</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- PAGE TITLE -->
-    <section class="page-hero">
-      <span class="label">Work</span>
-      <h1>Selected<br />work</h1>
-      <p>
-        Six projects across immersive, game, data and cultural design. Hover to see the full
-        picture, click to read the case study.
-      </p>
-    </section>
-    <!-- WORK: project grid -->
-    <section class="work" id="work">
-      <div class="grid">
-        <a
-          class="tile"
-          href="pages/project-1.html"
-          aria-label="Open case study: Dhanushkodi — The Lost Land"
-          ><div class="pic hatch">
-            <img
-              class="a"
-              src="imagezz/Dhanushkodi%20vr.png"
-              alt="Dhanushkodi — The Lost Land"
-              loading="lazy"
-              onerror="this.remove()"
-            /><img
-              class="b"
-              src="imagezz/Dhanushkodi%20vr-hover.png"
-              alt=""
-              loading="lazy"
-              onload="this.parentNode.classList.add('has-b')"
-              onerror="this.remove()"
-            />
-          </div>
-          <div class="cap"><span>Dhanushkodi — The Lost Land</span><small>01</small></div>
-          <p class="pitch">
-            Walk through a town the sea took back: a multisensory VR experience that rebuilds
-            Dhanushkodi from memory, place and the aftermath of the 1964 cyclone, where
-            gesture-based interactions surface fragments of what was lost.
-          </p>
-          <div class="tags">
-            <span>VR World Building</span><span>Gesture Interaction</span><span>3D</span>
-          </div>
-          <span class="viewlink">View Project →</span></a
-        >
-        <a
-          class="tile"
-          href="pages/project-2.html"
-          aria-label="Open case study: Mandi — A Card Game"
-          ><div class="pic hatch">
-            <img
-              class="a"
-              src="imagezz/mandi.jpeg"
-              alt="Mandi — A Card Game"
-              loading="lazy"
-              onerror="this.remove()"
-            /><img
-              class="b"
-              src="imagezz/mandi-hover.jpeg"
-              alt=""
-              loading="lazy"
-              onload="this.parentNode.classList.add('has-b')"
-              onerror="this.remove()"
-            />
-          </div>
-          <div class="cap"><span>Mandi — A Card Game</span><small>02</small></div>
-          <p class="pitch">
-            Turn practice into play: a card game for speech therapy built around sound, repetition
-            and visual feedback, where practised sounds are paired with characters and small
-            rewards.
-          </p>
-          <div class="tags">
-            <span>Game Design</span><span>UX Research</span><span>Speech Therapy</span>
-          </div>
-          <span class="viewlink">View Project →</span></a
-        >
-        <a class="tile" href="pages/project-3.html" aria-label="Open case study: Air &amp; Birds"
-          ><div class="pic hatch">
-            <img
-              class="a"
-              src="imagezz/Fragile%20flights.png"
-              alt="Air &amp; Birds"
-              loading="lazy"
-              onerror="this.remove()"
-            /><img
-              class="b"
-              src="imagezz/Fragile%20flights-hover.png"
-              alt=""
-              loading="lazy"
-              onload="this.parentNode.classList.add('has-b')"
-              onerror="this.remove()"
-            />
-          </div>
-          <div class="cap"><span>Air &amp; Birds</span><small>03</small></div>
-          <p class="pitch">
-            Feel the air before you read it: a data visualisation of air quality and bird
-            populations across Ahmedabad, where flocks on screen thin and scatter as AQI readings
-            climb.
-          </p>
-          <div class="tags">
-            <span>Data Visualisation</span><span>Research</span><span>Interaction</span>
-          </div>
-          <span class="viewlink">View Project →</span></a
-        >
-        <a class="tile" href="pages/project-4.html" aria-label="Open case study: ITI"
-          ><div class="pic hatch">
-            <img
-              class="a"
-              src="imagezz/ITI%20Game.png"
-              alt="ITI"
-              loading="lazy"
-              onerror="this.remove()"
-            /><img
-              class="b"
-              src="imagezz/ITI%20Game-hover.png"
-              alt=""
-              loading="lazy"
-              onload="this.parentNode.classList.add('has-b')"
-              onerror="this.remove()"
-            />
-          </div>
-          <div class="cap"><span>ITI</span><small>04</small></div>
-          <p class="pitch">
-            Build the puppet, then watch the story begin: a DIY puppet theatre kit that brings
-            Indian folk stories to children through making, performing and AR.
-          </p>
-          <div class="tags"><span>AR</span><span>Storytelling</span><span>Folk Art</span></div>
-          <span class="viewlink">View Project →</span></a
-        >
-        <a
-          class="tile"
-          href="pages/project-5.html"
-          aria-label="Open case study: The Temple That Speaks"
-          ><div class="pic hatch">
-            <img
-              class="a"
-              src="imagezz/DigitalMuseum.png"
-              alt="The Temple That Speaks"
-              loading="lazy"
-              onerror="this.remove()"
-            /><img
-              class="b"
-              src="imagezz/DigitalMuseum-hover.png"
-              alt=""
-              loading="lazy"
-              onload="this.parentNode.classList.add('has-b')"
-              onerror="this.remove()"
-            />
-          </div>
-          <div class="cap"><span>The Temple That Speaks</span><small>05</small></div>
-          <p class="pitch">
-            Let the stone tell its own story: an interactive museum experience on the culture and
-            tradition of Tamil Nadu, where carved details unfold into sound, story and animation.
-          </p>
-          <div class="tags">
-            <span>Immersive</span><span>Museum</span><span>Experience Design</span>
-          </div>
-          <span class="viewlink">View Project →</span></a
-        >
-        <a class="tile" href="pages/project-6.html" aria-label="Open case study: Taru"
-          ><div class="pic hatch">
-            <img
-              class="a"
-              src="imagezz/taru.png"
-              alt="Taru"
-              loading="lazy"
-              onerror="this.remove()"
-            /><img
-              class="b"
-              src="imagezz/taru-hover.png"
-              alt=""
-              loading="lazy"
-              onload="this.parentNode.classList.add('has-b')"
-              onerror="this.remove()"
-            />
-          </div>
-          <div class="cap"><span>Taru</span><small>06</small></div>
-          <p class="pitch">
-            Hold a feeling in your hands: a board game on emotional recognition through expressions,
-            colour and the nine Navarasas, designed for autistic kids to sort, match and talk about.
-          </p>
-          <div class="tags">
-            <span>Board Game</span><span>Emotional Learning</span><span>Inclusive Design</span>
-          </div>
-          <span class="viewlink">View Project →</span></a
-        >
-      </div>
-    </section>
-    <!-- FOOTER: say hello and social links -->
-    <footer class="foot" id="contact">
-      <h2>Say Hello!!</h2>
-      <p>Let's connect.</p>
-      <a class="mail" href="mailto:veeven.des12@gmail.com">veeven.des12@gmail.com</a>
-      <div class="foot-row">
-        <span>&copy; 2026 Vaishnavi Venkatesh</span>
-        <div>
-          <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a
-          ><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a
-          ><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-            >instagram</a
-          ><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
-            >linkedin</a
-          >
+
+      .work .pic img.a {
+        width: 90%;
+        max-width: 90%;
+      }
+
+      .work .pic img.b {
+        left: 5%;
+        width: 90%;
+        max-width: 90%;
+      }
+
+      .page-hero {
+        padding-top: 35px;
+      }
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+      .site-head {
+        padding: 20px 6%;
+        gap: 16px;
+      }
+
+      .site-head .logo img {
+        width: 100px;
+      }
+
+      .site-head .logo:hover img,
+      .site-head .logo:focus-visible img {
+        transform: scale(1.12);
+      }
+
+      .site-head .site-nav ul {
+        gap: 7px;
+      }
+
+      .site-head .site-nav a {
+        font-size: 12px;
+      }
+
+      .page-hero {
+        padding: 35px 6% 20px;
+      }
+
+      .work {
+        padding: 15px 6% 45px;
+      }
+
+      .work .grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .work .pic img.a {
+        width: 86%;
+        max-width: 86%;
+      }
+
+      .work .pic img.b {
+        left: 7%;
+        width: 86%;
+        max-width: 86%;
+      }
+
+      .work .pic {
+        margin-bottom: 12px;
+      }
+
+      .foot {
+        padding: 30px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor"></div>
+
+  <!-- HEADER -->
+  <header class="site-head">
+    <a class="logo" href="home.html" aria-label="Home">
+      <img
+        src="imagezz/vvc%20logo.png"
+        alt="Vaishnavi Venkatesh — Home"
+      />
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="work.html" class="on">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="playground.html">Playground</a></li>
+        <li><a href="slice.html">Slice of life</a></li>
+       
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PAGE TITLE -->
+  <section class="page-hero">
+    <h1>Selected<br />work</h1>
+  </section>
+
+  <!-- PROJECT GRID -->
+  <section class="work" id="work">
+    <div class="grid">
+
+      <!-- 01: DHANUSHKODI -->
+      <a
+        class="tile"
+        href="pages/project-1.html"
+        aria-label="Open case study: Dhanushkodi — The Lost Land"
+      >
+        <div class="pic">
+          <img
+            class="a"
+            src="imagezz/dk%20main.png"
+            alt="Dhanushkodi — The Lost Land"
+            loading="lazy"
+            onerror="this.remove()"
+          />
+          <img
+            class="b"
+            src="imagezz/dkmainmain.png"
+            alt=""
+            loading="lazy"
+            onerror="this.remove()"
+          />
         </div>
+
+        <div class="cap">
+          <span>Dhanushkodi — The Lost Land</span>
+          <small>01</small>
+        </div>
+
+        <p class="pitch">
+          Walk through a town the sea took back: a multisensory VR experience
+          that rebuilds Dhanushkodi from memory, place and the aftermath of
+          the 1964 cyclone, where gesture-based interactions surface fragments
+          of what was lost.
+        </p>
+
+        <div class="tags">
+          <span>VR World Building</span>
+          <span>Gesture Interaction</span>
+          <span>3D</span>
+        </div>
+
+        <span class="viewlink">View Project →</span>
+      </a>
+
+      <!-- 02: MANDI -->
+      <a
+        class="tile"
+        href="pages/project-2.html"
+        aria-label="Open case study: Mandi — A Card Game"
+      >
+        <div class="pic">
+          <img
+            class="a"
+            src="imagezz/mandi%20main.png"
+            alt="Mandi — A Card Game"
+            loading="lazy"
+            onerror="this.remove()"
+          />
+          <img
+            class="b"
+            src="imagezz/mandimainmain.png"
+            alt=""
+            loading="lazy"
+            onerror="this.remove()"
+          />
+        </div>
+
+        <div class="cap">
+          <span>Mandi — A Card Game</span>
+          <small>02</small>
+        </div>
+
+        <p class="pitch">
+          A card game for understanding the dynamics of Bopal market, Ahmedabad.
+        </p>
+
+        <div class="tags">
+          <span>Game Design</span>
+          <span>UX Research</span>
+          <span>Market Research</span>
+        </div>
+
+        <span class="viewlink">View Project →</span>
+      </a>
+
+      <!-- 03: FRAGILE FLIGHTS -->
+      <a
+        class="tile"
+        href="pages/project-3.html"
+        aria-label="Open case study: Fragile Flights"
+      >
+        <div class="pic">
+          <img
+            class="a"
+            src="imagezz/ff%20main.png"
+            alt="Fragile Flights"
+            loading="lazy"
+            onerror="this.remove()"
+          />
+          <img
+            class="b"
+            src="imagezz/ffmainmain.png"
+            alt=""
+            loading="lazy"
+            onerror="this.remove()"
+          />
+        </div>
+
+        <div class="cap">
+          <span>Fragile Flights</span>
+          <small>03</small>
+        </div>
+
+        <p class="pitch">
+          A data visualisation of air quality around Ahmedabad and how it affects
+          birds, presented through a graphical simulation.
+        </p>
+
+        <div class="tags">
+          <span>Data Visualisation</span>
+          <span>Research</span>
+          <span>Interaction</span>
+        </div>
+
+        <span class="viewlink">View Project →</span>
+      </a>
+
+      <!-- 04: ITI -->
+      <a
+        class="tile"
+        href="pages/project-4.html"
+        aria-label="Open case study: ITI"
+      >
+        <div class="pic">
+          <img
+            class="a"
+            src="imagezz/iti%20main.png"
+            alt="ITI"
+            loading="lazy"
+            onerror="this.remove()"
+          />
+          <img
+            class="b"
+            src="imagezz/itimainmain.png"
+            alt=""
+            loading="lazy"
+            onerror="this.remove()"
+          />
+        </div>
+
+        <div class="cap">
+          <span>ITI</span>
+          <small>04</small>
+        </div>
+
+        <p class="pitch">
+          Build the puppets, then watch the story begin: a DIY puppet theatre
+          kit that brings Indian folk stories to children through making,
+          performing and AR.
+        </p>
+
+        <div class="tags">
+          <span>AR</span>
+          <span>Storytelling</span>
+          <span>Folk Art</span>
+        </div>
+
+        <span class="viewlink">View Project →</span>
+      </a>
+
+      <!-- 05: SECOND SIGHT -->
+      <a
+        class="tile"
+        href="pages/project-5.html"
+        aria-label="Open case study: The Second Sight"
+      >
+        <div class="pic">
+          <img
+            class="a"
+            src="imagezz/second%20sight%20main.png"
+            alt="The Second Sight"
+            loading="lazy"
+            onerror="this.remove()"
+          />
+          <img
+            class="b"
+            src="imagezz/secondsightmainmain.png"
+            alt=""
+            loading="lazy"
+            onerror="this.remove()"
+          />
+        </div>
+
+        <div class="cap">
+          <span>The Second Sight</span>
+          <small>05</small>
+        </div>
+
+        <p class="pitch">
+          Discover different perspectives on the same images through AR and
+          the opinions of others, creating an invisible community.
+        </p>
+
+        <div class="tags">
+          <span>Immersive</span>
+          <span>AR/XR</span>
+          <span>Experience Design</span>
+        </div>
+
+        <span class="viewlink">View Project →</span>
+      </a>
+
+      <!-- 06: LUSHE -->
+      <a
+        class="tile"
+        href="pages/project-6.html"
+        aria-label="Open case study: Lushe"
+      >
+        <div class="pic">
+          <img
+            class="a"
+            src="imagezz/lushe%20main.png"
+            alt="Lushe haircare branding"
+            loading="lazy"
+            onerror="this.remove()"
+          />
+          <img
+            class="b"
+            src="imagezz/lushemainmain.png"
+            alt=""
+            loading="lazy"
+            onerror="this.remove()"
+          />
+        </div>
+
+        <div class="cap">
+          <span>Lushe</span>
+          <small>06</small>
+        </div>
+
+        <p class="pitch">
+          A haircare branding project exploring the brand's visual identity,
+          packaging and storytelling.
+        </p>
+
+        <div class="tags">
+          <span>Branding</span>
+          <span>Visual Design</span>
+          <span>Packaging</span>
+        </div>
+
+        <span class="viewlink">View Project →</span>
+      </a>
+
+    </div>
+  </section>
+    <div class="foot-row">
+      <span>&copy; 2026 Vaishnavi Venkatesh</span>
+
+      <div>
+        <a
+          href="https://github.com/blueexev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >github</a>
+
+        <a
+          href="https://www.behance.net/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >behance</a>
+
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >instagram</a>
+
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >linkedin</a>
       </div>
-    </footer>
-    <script src="js/main.js"></script>
-  </body>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
