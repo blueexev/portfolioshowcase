@@ -9,395 +9,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/style.css" />
 
-    <style>
-      /* =========================================================
-         IMAGE SIZE AND POSITION CONTROLS
-         Change these values to adjust image sizes across the page.
-         ========================================================= */
-
-      :root {
-        --iti-image-width: 90%;
-        --iti-image-height: 100%;
-        --iti-image-gap: 20px;
-
-        --iti-context-width: 85%;
-        --iti-game-width: 90%;
-        --iti-inspiration-width: 85%;
-        --iti-packaging-width: 90%;
-        --iti-final-width: 90%;
-
-        --iti-item-width: 88%;
-        --iti-visual-width: 85%;
-      }
-
-      /* Basic text styling */
-      .quote {
-        margin: 0 0 8px;
-        font-size: 1.15em;
-        line-height: 1.5;
-      }
-
-      .sub {
-        margin: 32px 0 8px;
-        font: inherit;
-        font-weight: bold;
-      }
-
-      /* =========================================================
-         IMAGE CONTAINERS
-         Images remain fully visible instead of being cropped.
-         ========================================================= */
-
-      .shot {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        box-sizing: border-box;
-      }
-
-      .shot img {
-        position: relative;
-        inset: auto;
-        display: block;
-        width: var(--iti-image-width);
-        max-width: 100%;
-        height: var(--iti-image-height);
-        max-height: 100%;
-        object-fit: contain;
-        object-position: center;
-        margin: 0 auto;
-        flex: 0 1 auto;
-      }
-
-      /* Wide image containers */
-      .shot-wide {
-        aspect-ratio: 16 / 9;
-        margin-top: var(--iti-image-gap);
-      }
-
-      .shot-banner {
-        aspect-ratio: 21 / 9;
-        margin-top: var(--iti-image-gap);
-      }
-
-      /* Individual image sizes */
-      #context .shot img {
-        width: var(--iti-context-width);
-      }
-
-      #game .shot img {
-        width: var(--iti-game-width);
-      }
-
-      #inspiration .shot img {
-        width: var(--iti-inspiration-width);
-      }
-
-      #packaging .shot img {
-        width: var(--iti-packaging-width);
-      }
-
-      #final .shot img {
-        width: var(--iti-final-width);
-      }
-
-      /* =========================================================
-         IMAGE GRIDS
-         ========================================================= */
-
-      .items {
-        display: grid;
-        gap: 28px 24px;
-        margin-top: 20px;
-      }
-
-      .items.c2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .items.c3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .items.c4 {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .item {
-        min-width: 0;
-      }
-
-      .item .ph {
-        aspect-ratio: 4 / 3;
-        margin-bottom: 12px;
-      }
-
-      .items.sq .item .ph {
-        aspect-ratio: 1 / 1;
-      }
-
-      .item .ph img {
-        width: var(--iti-item-width);
-        height: 90%;
-        object-fit: contain;
-      }
-
-      .items.c4 .item .ph img {
-        width: var(--iti-visual-width);
-      }
-
-      .item p {
-        margin: 0;
-      }
-
-      /* =========================================================
-         INDIVIDUAL POSITION ADJUSTMENTS
-         Uncomment and edit any rule to move a particular image.
-         Positive X = right; negative X = left.
-         Positive Y = down; negative Y = up.
-         ========================================================= */
-
-      /*
-      #game .shot img {
-        transform: translate(10px, 0);
-      }
-
-      #kit .item:nth-child(2) .ph img {
-        transform: translate(0, -8px);
-      }
-
-      #visual .item:nth-child(3) .ph img {
-        transform: translate(8px, 0);
-      }
-      */
-
-      /* =========================================================
-         PAGE-WIDE TYPOGRAPHY: 20% SMALLER
-         ========================================================= */
-
-      body {
-        font-size: 7.68px;
-      }
-
-      .label {
-        font-size: 6.24px;
-      }
-
-      .site-nav a {
-        font-size: 9.12px;
-      }
-
-      .whatif {
-        font-size: clamp(9.6px, 1.25vw, 17.28px);
-      }
-
-      .meta b {
-        font-size: 8.64px;
-      }
-
-      .ph {
-        font-size: 6.72px;
-      }
-
-      .pn a {
-        font-size: clamp(10.56px, 1.54vw, 21.12px);
-      }
-
-      .pn small {
-        font-size: 6.24px;
-      }
-
-      .foot h2 {
-        font-size: clamp(22.08px, 4.32vw, 67.2px);
-      }
-
-      .foot p {
-        font-size: clamp(9.6px, 1.25vw, 16.32px);
-      }
-
-      .foot .mail {
-        font-size: clamp(7.68px, 0.96vw, 12.48px);
-      }
-
-      .foot-row {
-        font-size: 8.16px;
-      }
-
-      .case-nav a {
-        font-size: 11.2px;
-      }
-
-      .case-nav small {
-        font-size: 8.8px;
-      }
-
-      .csec h2 {
-        font-size: clamp(22.4px, 3.36vw, 48px);
-      }
-
-      .csec p {
-        font-size: clamp(10.4px, 1.2vw, 16px);
-      }
-
-      .tags span {
-        font-size: 8px;
-      }
-
-      .page-hero .tags span {
-        font-size: 8.8px;
-      }
-
-      /* =========================================================
-         REDUCED EMPTY SPACE
-         ========================================================= */
-
-      .page-hero {
-        padding: 130px var(--pad) 30px;
-      }
-
-      .meta {
-        padding-bottom: 30px;
-      }
-
-      .case-layout {
-        padding-top: 40px;
-      }
-
-      .csec {
-        padding-bottom: 56px;
-      }
-
-      .csec h2 {
-        margin-bottom: 14px;
-      }
-
-      .csec p,
-      .page-hero p {
-        max-width: none;
-      }
-
-      .csec p {
-        margin: 0;
-      }
-
-      .csec p + p {
-        margin-top: 0.9em;
-      }
-
-      .csec p.quote {
-        font-size: 1.15em;
-        margin: 0 0 18px;
-      }
-
-      .csec .ph {
-        margin-top: 20px;
-      }
-
-      .pn {
-        margin-top: 60px;
-      }
-
-      .pn a {
-        padding: 32px var(--pad);
-      }
-
-      .foot {
-        padding: 56px var(--pad) 28px;
-      }
-
-      /* Wider screens */
-      @media (min-width: 901px) {
-        .case-layout {
-          grid-template-columns: 180px minmax(0, 1fr);
-          gap: 40px;
-        }
-      }
-
-      /* Tablet layout */
-      @media (max-width: 900px) {
-        .case-layout {
-          grid-template-columns: minmax(0, 1fr);
-        }
-
-        .items.c4 {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      /* Mobile layout */
-      @media (max-width: 520px) {
-        .items.c2,
-        .items.c3,
-        .items.c4 {
-          grid-template-columns: minmax(0, 1fr);
-        }
-
-        .shot-wide {
-          aspect-ratio: 4 / 3;
-        }
-
-        .shot-banner {
-          aspect-ratio: 4 / 3;
-        }
-
-        .shot img,
-        #context .shot img,
-        #game .shot img,
-        #inspiration .shot img,
-        #packaging .shot img,
-        #final .shot img,
-        .item .ph img {
-          width: 90%;
-          height: 90%;
-          max-width: 100%;
-          max-height: 100%;
-          object-fit: contain;
-        }
-
-        .page-hero {
-          padding-top: 100px;
-        }
-      }
-    </style>
-  </head>
+    
+    <script>try{if(sessionStorage.getItem("vv-t"))document.documentElement.classList.add("arriving")}catch(e){}</script>
+</head>
 
   <body>
     <div class="cursor"></div>
 
     <!-- HEADER -->
     <header class="site-head">
-      <a class="logo" href="../home.html" aria-label="Home">
-        <img
-          src="../imagezz/vvc%20logo.png"
-          alt="Home"
-          onerror="this.onerror=null;this.src='../assets/logo.svg';"
-        />
-      </a>
-
-      <nav class="site-nav">
-        <ul>
-          <li><a href="../work.html" class="on">Work</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../playground.html">Playground</a></li>
-          <li><a href="../slice.html">Slice of life</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <a class="logo" href="../home.html" aria-label="Home">
+      <img src="../imagezz/vvc%20logo.png" alt="Vaishnavi Venkatesh, home" onerror="this.onerror=null;this.src='../portfolio/imagezz/vvc%20logo.png';" />
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../work.html" class="on">Work</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../playground.html">Playground</a></li>
+        <li><a href="../slice.html">Slice of life</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
     <!-- PAGE TITLE -->
     <section class="page-hero">
       <span class="label">Case study 04</span>
-      <h1 style="font-size: clamp(20.16px, 4.08vw, 67.2px)">ITI</h1>
+      <h1>ITI</h1>
 
-      <p class="whatif" style="color: inherit">
+      <p class="whatif">
         What if the puppet you built yourself came alive on screen to tell an Indian folk story?
       </p>
 
@@ -826,29 +471,26 @@
     </div>
 
     <!-- PREVIOUS / NEXT PROJECT -->
-    <nav class="pn">
-      <a href="project-3.html">
-        <small>← Previous</small>
-        Fragile Flights
-      </a>
-
-      <a href="project-5.html">
-        <small>Next →</small>
-        The second sight
-      </a>
-    </nav>
+    <nav class="pn" aria-label="Other projects">
+    <a href="project-3.html"><small>← Previous</small>Fragile Flights</a>
+    <a href="project-5.html"><small>Next →</small>The Second Sight</a>
+  </nav>
 
     <!-- FOOTER -->
     <footer class="foot" id="contact">
+    <h2>Say Hello!!</h2>
+    <p>Let's connect.</p>
+    <a class="mail" href="mailto:veeven.des12@gmail.com">veeven.des12@gmail.com</a>
+    <div class="foot-row">
       <span>&copy; 2026 Vaishnavi Venkatesh</span>
-
       <div>
         <a href="https://github.com/blueexev" target="_blank" rel="noopener noreferrer">github</a>
         <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">behance</a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">instagram</a>
         <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">linkedin</a>
       </div>
-    </footer>
+    </div>
+  </footer>
 
     <script src="../js/main.js"></script>
   </body>
