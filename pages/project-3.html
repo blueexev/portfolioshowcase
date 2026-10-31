@@ -16,6 +16,43 @@
          No fonts or colours are set here, so everything inherits from style.css. -->
     
     <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- PICTURES ON THIS PAGE (comes after style.css so it wins):
+         no border on any picture, nothing is cropped, and the placeholder label
+         is hidden as soon as a picture or illustration is there. -->
+    <style>
+      .case-img,
+      .ph,
+      .shot,
+      .csec .ph,
+      .csec .item .ph,
+      .case-img img,
+      .ph img,
+      .shot img {
+        border: 0 !important;
+      }
+
+      .csec .ph,
+      .csec .item .ph {
+        aspect-ratio: auto;
+        background: none;
+        overflow: visible;
+      }
+      .ph:has(img) {
+        display: block;
+      }
+      .ph img,
+      .csec .ph img {
+        position: static;
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      .ph:has(img) .lbl {
+        display: none;
+      }
+    </style>
   <script>try{if(sessionStorage.getItem("vv-t"))document.documentElement.classList.add("arriving")}catch(e){}</script>
 </head>
 
@@ -233,7 +270,7 @@
                 <img
                   src="../imagezz/air-loading.png"
                   alt="Loading screen"
-                  onerror="this.remove()"
+                  onerror="this.onerror=null;this.src='../assets/ph/air-loading.svg'"
                 />
 <span class="lbl">Loading screen</span></div>
               <h4>Loading Screen</h4>
@@ -244,7 +281,7 @@
                 <img
                   src="../imagezz/air-simulation.png"
                   alt="Bird simulation"
-                  onerror="this.remove()"
+                  onerror="this.onerror=null;this.src='../assets/ph/air-simulation.svg'"
                 />
 <span class="lbl">Bird simulation</span></div>
               <h4>Bird Simulation</h4>
@@ -255,7 +292,11 @@
             </div>
             <div class="item">
               <div class="ph shot">
-                <img src="../imagezz/air-aqi.png" alt="AQI detection" onerror="this.remove()" />
+                <img
+                  src="../imagezz/air-aqi.png"
+                  alt="AQI detection"
+                  onerror="this.onerror=null;this.src='../assets/ph/air-aqi.svg'"
+                />
 <span class="lbl">AQI detection</span></div>
               <h4>AQI Detection</h4>
               <p>
@@ -265,7 +306,11 @@
             </div>
             <div class="item">
               <div class="ph shot">
-                <img src="../imagezz/air-health.png" alt="Health system" onerror="this.remove()" />
+                <img
+                  src="../imagezz/air-health.png"
+                  alt="Health system"
+                  onerror="this.onerror=null;this.src='../assets/ph/air-health.svg'"
+                />
 <span class="lbl">Health system</span></div>
               <h4>Health System</h4>
               <p>
@@ -278,7 +323,7 @@
                 <img
                   src="../imagezz/air-path.png"
                   alt="Path visualization"
-                  onerror="this.remove()"
+                  onerror="this.onerror=null;this.src='../assets/ph/air-path.svg'"
                 />
 <span class="lbl">Path visualization</span></div>
               <h4>Path Visualization</h4>
@@ -292,7 +337,7 @@
                 <img
                   src="../imagezz/air-weekly.png"
                   alt="Weekly progression"
-                  onerror="this.remove()"
+                  onerror="this.onerror=null;this.src='../assets/ph/air-weekly.svg'"
                 />
 <span class="lbl">Weekly progression</span></div>
               <h4>Weekly Progression</h4>

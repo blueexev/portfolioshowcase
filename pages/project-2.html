@@ -153,39 +153,137 @@
         </section>
 
         <!-- STAKEHOLDER MAPPING -->
+        <!-- STAKEHOLDER MAPPING -->
+<!-- STAKEHOLDER MAPPING -->
         <section class="csec" id="stakeholders">
           <h2>Stakeholder Mapping</h2>
-          <div class="ph diagram-box shot-wide shot">
-            <img src="../imagezz/stakeholder-map-1.png" alt="Stakeholder map: vendors and consumers" onerror="this.remove()" />
-<span class="lbl">Stakeholder map 1</span></div>
-          <div class="ph diagram-box shot-wide shot">
-            <img src="../imagezz/stakeholder-map-2.png" alt="Visible and invisible stakeholders" onerror="this.remove()" />
-<span class="lbl">Stakeholder map 2</span></div>
+
+          <p>
+            Mapping the stakeholders showed how vendors, suppliers and customers depend on each
+            other. A decision made by one stakeholder can directly affect another. We mapped key
+            stakeholders consumers, various vendors, the plot owner and external shopkeepers to
+            understand their roles, behaviors, and challenges. Consumers highlighted price
+            sensitivity, vendors shared operational struggles, the owner discussed maintenance and
+            rent, while external shops emphasized visibility. This helped us uncover market dynamics
+            and interactions influencing daily operations.
+          </p>
+
+          <!-- STAKEHOLDER MAP ILLUSTRATION -->
+          <div
+            class="stakeholder-map"
+            role="img"
+            aria-label="Stakeholder map showing the vendor group connected to five categories of market vendors: vegetable vendors, vendors outside the market, cart stalls, fruit vendors and permanent stalls."
+          >
+            <svg viewBox="0 0 1000 390" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Styles for the illustration (change the colour in ONE place: --map-blue) -->
+              <style>
+                .stakeholder-map {
+                  --map-blue: var(--ink, #0b1b3a);
+                  width: 100%;
+                  max-width: 900px;
+                  margin: 28px auto 0;
+                }
+                .stakeholder-map svg {
+                  display: block;
+                  width: 100%;
+                  height: auto;
+                  overflow: visible;
+                  font-family: inherit;
+                }
+                .stakeholder-map .node {
+                  fill: #fff;
+                  stroke: var(--map-blue);
+                  stroke-width: 1.5px;
+                  vector-effect: non-scaling-stroke;
+                }
+                .stakeholder-map .connector {
+                  fill: none;
+                  stroke: var(--map-blue);
+                  stroke-width: 1.5px;
+                  stroke-linecap: square;
+                  vector-effect: non-scaling-stroke;
+                }
+                .stakeholder-map text {
+                  fill: var(--map-blue);
+                  text-anchor: middle;
+                  dominant-baseline: central;
+                }
+                .stakeholder-map .main-label {
+                  font-size: 17px;
+                  font-weight: 500;
+                  letter-spacing: 0.28em;
+                }
+                .stakeholder-map .stakeholder-label {
+                  font-size: 20px;
+                  font-weight: 700;
+                }
+                @media (max-width: 600px) {
+                  .stakeholder-map .main-label { font-size: 22px; }
+                  .stakeholder-map .stakeholder-label { font-size: 24px; }
+                }
+              </style>
+
+              <!-- Main stakeholder -->
+              <rect class="node" x="350" y="10" width="300" height="72" />
+              <text class="main-label" x="500" y="46">VENDOR</text>
+
+              <!-- Connectors: down from the main box, across, then down to each box -->
+              <path class="connector" d="M500 82 V165" />
+              <path class="connector" d="M120 165 H880" />
+              <path class="connector" d="M120 165 V220" />
+              <path class="connector" d="M310 165 V220" />
+              <path class="connector" d="M500 165 V220" />
+              <path class="connector" d="M690 165 V220" />
+              <path class="connector" d="M880 165 V220" />
+
+              <!-- Stakeholder boxes (centre of each box is y = 287) -->
+              <rect class="node" x="30" y="220" width="180" height="135" />
+              <rect class="node" x="220" y="220" width="180" height="135" />
+              <rect class="node" x="410" y="220" width="180" height="135" />
+              <rect class="node" x="600" y="220" width="180" height="135" />
+              <rect class="node" x="790" y="220" width="180" height="135" />
+
+              <!-- Stakeholder labels: every line is centred in its box -->
+              <text class="stakeholder-label">
+                <tspan x="120" y="276">Vegetable</tspan>
+                <tspan x="120" y="298">vendors</tspan>
+              </text>
+
+              <text class="stakeholder-label">
+                <tspan x="310" y="265">Vendors</tspan>
+                <tspan x="310" y="287">outside the</tspan>
+                <tspan x="310" y="309">market</tspan>
+              </text>
+
+              <text class="stakeholder-label">
+                <tspan x="500" y="287">Cart Stalls</tspan>
+              </text>
+
+              <text class="stakeholder-label">
+                <tspan x="690" y="276">Fruit</tspan>
+                <tspan x="690" y="298">vendors</tspan>
+              </text>
+
+              <text class="stakeholder-label">
+                <tspan x="880" y="276">Permanent</tspan>
+                <tspan x="880" y="298">stalls</tspan>
+              </text>
+            </svg>
+          </div>
+          <!-- END STAKEHOLDER MAP ILLUSTRATION -->
+
           <p class="sub">Visible stakeholders</p>
           <p>Vendors, Owner of the plot, Security guard, Consumer, AMC inspector</p>
-          <p class="sub">Invisible stakeholders</p>
-          <p>Wholesaler/Suppliers, Jamalpur market, Kamod market, Fruit retailers at Naroda, TRP mall</p>
-        </section>
 
-        <!-- INSIGHTS INFERRED -->
-        <section class="csec" id="insights">
-          <h2>Insights inferred</h2>
-          <div class="insights">
-            <div class="card">
-              <p>Many customers prioritize price over quality, buying from multiple vendors at night when prices drop. Rising costs make them more price-sensitive, leading to vendor shifts and a preference for seasonal vegetables.</p>
-            </div>
-            <div class="card">
-              <p>Stalls near entrances and parking get more sales due to better visibility and easy access, as customers prefer not to enter the market.</p>
-            </div>
-            <div class="card">
-              <p>Vendor avoid government market to maintain their freedom, avoid strict regulations and lengthy paperwork and run their businesses more easily and flexible.</p>
-            </div>
-          </div>
+          <p class="sub">Invisible stakeholders</p>
+          <p>
+            Wholesaler/Suppliers, Jamalpur market, Kamod market, Fruit retailers at Naroda, TRP mall
+          </p>
         </section>
 
         <!-- THE CREATIVE OUTPUT -->
         <section class="csec" id="output">
-          <h2>The creative output [MANDI- the card game]</h2>
+          <h2>The creative output</h2>
           <p>
             Step into the chaotic, colorful world of the local vegetable bazaar, where every vendor,
             buyer and transporter plays a vital role. Mandi, is a strategy-based card game where
